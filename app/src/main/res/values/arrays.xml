@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="option">
+        <item>1.5t</item>
+        <item>2t</item>
+        <item>2.5t</item>
+        <item>3t</item>
+        <item>3.5t</item>
+        <item>4t</item>
+        <item>4.5t</item>
+        <item>5t</item>
+        <item>5.5t</item>
+        <item>6t</item>
+        <item>6.5t</item>
+        <item>7t</item>
+        <item>7.5t</item>
+    </string-array>
+</resources>

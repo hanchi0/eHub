@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light">
+
+    <TextView
+        android:layout_width="56dp"
+        android:layout_height="22dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="498dp"
+        android:text="추가정보"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/signUp_fragment_detail_employer_etPhone"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="433dp"
+        android:background="@drawable/view_border"
+        android:hint="연락처"
+        android:inputType="phone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/signUp_fragment_detail_employer_etCRN"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/view_border"
+        android:hint="사업자등록번호"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employer_etPhone"
+        />
+
+    <EditText
+        android:id="@+id/signUp_fragment_detail_employer_etNick"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/view_border"
+        android:hint="별명"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employer_etCRN"
+        />
+
+    <Button
+        android:id="@+id/signUp_fragment_detail_employer_btnSkip"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:background="#d8d8d8"
+        android:text="건너뛰기"
+        android:textColor="#ffffffff"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/signUp_fragment_detail_employer_btnSignUp" />
+
+    <Button
+        android:id="@+id/signUp_fragment_detail_employer_btnSignUp"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:background="#d8d8d8"
+        android:text="회원가입"
+        android:textColor="#ffffffff"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/signUp_fragment_detail_employer_btnSkip"
+        app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>

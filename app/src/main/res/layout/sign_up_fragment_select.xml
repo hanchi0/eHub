@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    tools:context=".signup.ui.SignUpFragment_Select">
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="39dp"
+        android:src="@drawable/title"
+        app:layout_constraintLeft_toLeftOf="@id/signUp_fragment_select_btnEmployer"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="99dp"
+        android:text="회원가입"
+        android:textColor="@color/textBold"
+        android:textSize="19sp"
+        app:layout_constraintLeft_toLeftOf="@id/signUp_fragment_select_btnEmployer"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/signUp_fragment_select_btnEmployer"
+        android:layout_width="320dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="149dp"
+        android:background="#009688"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="12dp"
+        android:clickable="false"
+        android:elevation="2dp"
+        android:src="@drawable/ic_loupe"
+        app:layout_constraintRight_toRightOf="@id/signUp_fragment_select_btnEmployer"
+        app:layout_constraintTop_toTopOf="@id/signUp_fragment_select_btnEmployer" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:clickable="false"
+        android:elevation="2dp"
+        android:text="일할 사람을 찾으시나요?"
+        android:textColor="@color/buttonTextHighlight"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/signUp_fragment_select_btnEmployer"
+        app:layout_constraintTop_toTopOf="@id/signUp_fragment_select_btnEmployer" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="34dp"
+        android:clickable="false"
+        android:elevation="2dp"
+        android:text="발주 회원"
+        android:textColor="@color/buttonTextHighlight"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@id/signUp_fragment_select_btnEmployer"
+        app:layout_constraintTop_toTopOf="@id/signUp_fragment_select_btnEmployer" />
+
+    <Button
+        android:id="@+id/signUp_fragment_select_btnEmployee"
+        android:layout_width="320dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        android:background="#2f5b5a"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_select_btnEmployer" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="28dp"
+        android:clickable="false"
+        android:elevation="2dp"
+        android:src="@drawable/ic_crane"
+        app:layout_constraintLeft_toLeftOf="@id/signUp_fragment_select_btnEmployee"
+        app:layout_constraintTop_toTopOf="@id/signUp_fragment_select_btnEmployee" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="57dp"
+        android:layout_marginRight="25dp"
+        android:clickable="false"
+        android:elevation="2dp"
+        android:text="일할 현장을 찾으시나요?"
+        android:textColor="@color/buttonTextHighlight"
+        android:textSize="14sp"
+        app:layout_constraintRight_toRightOf="@id/signUp_fragment_select_btnEmployee"
+        app:layout_constraintTop_toTopOf="@id/signUp_fragment_select_btnEmployee" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:layout_marginRight="25dp"
+        android:clickable="false"
+        android:elevation="2dp"
+        android:text="수주 회원"
+        android:textColor="@color/buttonTextHighlight"
+        android:textSize="20sp"
+        app:layout_constraintRight_toRightOf="@id/signUp_fragment_select_btnEmployee"
+        app:layout_constraintTop_toTopOf="@id/signUp_fragment_select_btnEmployee" />
+
+    <TextView
+        android:id="@+id/signUp_fragment_select_tvLogin"
+        android:layout_width="194dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="25dp"
+        android:text="이미 회원이신가요? 로그인하기"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_select_btnEmployee" />
+
+</android.support.constraint.ConstraintLayout>

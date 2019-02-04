@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="320dp"
+    android:layout_height="290dp"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="7dp"
+    app:cardElevation="5dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/application_fragment_list_cardView_iv"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:src="@drawable/temp_imageview"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/application_fragment_list_cardView_tvKind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="필요장비"
+            android:textColor="@color/textBold"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/application_fragment_list_cardView_iv" />
+
+        <TextView
+            android:id="@+id/application_fragment_list_cardView_tvDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="작업기간 쓸거임"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/application_fragment_list_cardView_tvKind" />
+
+        <TextView
+            android:id="@+id/application_fragment_list_cardView_tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="18dp"
+            android:text="작업명"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/application_fragment_list_cardView_tvDuration" />
+
+        <TextView
+            android:id="@+id/application_fragment_list_cardView_tvNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="11dp"
+            android:text="1/00명"
+            app:layout_constraintRight_toLeftOf="@id/application_fragment_list_cardView_tvPay"
+            app:layout_constraintTop_toBottomOf="@id/application_fragment_list_cardView_tvTitle" />
+
+        <TextView
+            android:id="@+id/application_fragment_list_cardView_tvPay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="000만원"
+            android:textColor="@color/textBold"
+            android:textSize="16sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/application_fragment_list_cardView_tvTitle" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>
