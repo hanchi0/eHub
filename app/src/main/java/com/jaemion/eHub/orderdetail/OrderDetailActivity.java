@@ -15,7 +15,7 @@ import com.jaemion.eHub.R;
 public class OrderDetailActivity extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView recyclerView;
-    TextView tvStatus, tvMessage;
+    TextView tvType, tvDuration, tvTitle, tvNum, tvPay, tvMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +27,12 @@ public class OrderDetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_black);
         recyclerView = findViewById(R.id.order_detail_recyclerView);
-        tvStatus = findViewById(R.id.order_detail_tvStatus);
         tvMessage = findViewById(R.id.order_detail_tvMessage);
+        tvType = findViewById(R.id.order_detail_tvType);
+        tvDuration = findViewById(R.id.order_detail_tvDuration);
+        tvTitle = findViewById(R.id.order_detail_tvTitle);
+        tvNum = findViewById(R.id.order_detail_tvNum);
+        tvPay = findViewById(R.id.order_detail_tvPay);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setHasFixedSize(true);
@@ -36,7 +40,6 @@ public class OrderDetailActivity extends AppCompatActivity {
         OrderDetailAdapter adapter = new OrderDetailAdapter(getApplicationContext());
         recyclerView.setAdapter(adapter);
         if (adapter.getItemCount() != 0) {
-            tvStatus.setVisibility(View.GONE);
             tvMessage.setVisibility(View.GONE);
         }else{
             recyclerView.setVisibility(View.GONE);

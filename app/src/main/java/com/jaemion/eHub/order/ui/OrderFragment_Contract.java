@@ -14,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.application.ApplicationActivity;
 import com.jaemion.eHub.customview.CustomCanvas;
 import com.jaemion.eHub.order.OrderActivity;
 
@@ -94,5 +95,11 @@ public class OrderFragment_Contract extends Fragment implements View.OnClickList
                 }
                 break;
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((ApplicationActivity) getActivity()).getSupportActionBar().show();
     }
 }

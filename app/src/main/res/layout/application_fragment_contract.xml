@@ -6,7 +6,7 @@
     android:background="@android:color/background_light">
 
     <TextView
-        android:id="@+id/order_fragment_contract_tvInfo1"
+        android:id="@+id/application_fragment_contract_tvInfo1"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:layout_marginLeft="20dp"
@@ -20,27 +20,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/order_fragment_contract_cb1"
+        android:id="@+id/application_fragment_contract_cb1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="18dp"
         android:button="@drawable/check_box"
-        app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo1"
-        app:layout_constraintLeft_toLeftOf="@id/order_fragment_contract_tvInfo1"
-        app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo1" />
+        app:layout_constraintBottom_toBottomOf="@id/application_fragment_contract_tvInfo1"
+        app:layout_constraintLeft_toLeftOf="@id/application_fragment_contract_tvInfo1"
+        app:layout_constraintTop_toTopOf="@id/application_fragment_contract_tvInfo1" />
 
     <ImageView
-        android:id="@+id/order_fragment_contract_iv1"
+        android:id="@+id/application_fragment_contract_iv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
         android:src="@drawable/ic_right_black"
-        app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo1"
-        app:layout_constraintRight_toRightOf="@id/order_fragment_contract_tvInfo1"
-        app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo1" />
+        app:layout_constraintBottom_toBottomOf="@id/application_fragment_contract_tvInfo1"
+        app:layout_constraintRight_toRightOf="@id/application_fragment_contract_tvInfo1"
+        app:layout_constraintTop_toTopOf="@id/application_fragment_contract_tvInfo1" />
 
     <TextView
-        android:id="@+id/order_fragment_contract_tvInfo2"
+        android:id="@+id/application_fragment_contract_tvInfo2"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:layout_marginLeft="20dp"
@@ -51,30 +51,30 @@
         android:textColor="@color/textBold"
         android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo1" />
+        app:layout_constraintTop_toBottomOf="@id/application_fragment_contract_tvInfo1" />
 
     <CheckBox
-        android:id="@+id/order_fragment_contract_cb2"
+        android:id="@+id/application_fragment_contract_cb2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="18dp"
         android:button="@drawable/check_box"
-        app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo2"
-        app:layout_constraintLeft_toLeftOf="@id/order_fragment_contract_tvInfo2"
-        app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo2" />
+        app:layout_constraintBottom_toBottomOf="@id/application_fragment_contract_tvInfo2"
+        app:layout_constraintLeft_toLeftOf="@id/application_fragment_contract_tvInfo2"
+        app:layout_constraintTop_toTopOf="@id/application_fragment_contract_tvInfo2" />
 
     <ImageView
-        android:id="@+id/order_fragment_contract_iv2"
+        android:id="@+id/application_fragment_contract_iv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
         android:src="@drawable/ic_right_black"
-        app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo2"
-        app:layout_constraintRight_toRightOf="@id/order_fragment_contract_tvInfo2"
-        app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo2" />
+        app:layout_constraintBottom_toBottomOf="@id/application_fragment_contract_tvInfo2"
+        app:layout_constraintRight_toRightOf="@id/application_fragment_contract_tvInfo2"
+        app:layout_constraintTop_toTopOf="@id/application_fragment_contract_tvInfo2" />
 
     <TextView
-        android:id="@+id/order_fragment_contract_tvInfo3"
+        android:id="@+id/application_fragment_contract_tvInfo3"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:layout_marginLeft="20dp"
@@ -85,27 +85,27 @@
         android:textColor="@color/textBold"
         android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo2" />
+        app:layout_constraintTop_toBottomOf="@id/application_fragment_contract_tvInfo2" />
 
     <CheckBox
-        android:id="@+id/order_fragment_contract_cb3"
+        android:id="@+id/application_fragment_contract_cb3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="18dp"
         android:button="@drawable/check_box"
-        app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo3"
-        app:layout_constraintLeft_toLeftOf="@id/order_fragment_contract_tvInfo3"
-        app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo3" />
+        app:layout_constraintBottom_toBottomOf="@id/application_fragment_contract_tvInfo3"
+        app:layout_constraintLeft_toLeftOf="@id/application_fragment_contract_tvInfo3"
+        app:layout_constraintTop_toTopOf="@id/application_fragment_contract_tvInfo3" />
 
     <ImageView
-        android:id="@+id/order_fragment_contract_iv3"
+        android:id="@+id/application_fragment_contract_iv3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dp"
         android:src="@drawable/ic_right_black"
-        app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo3"
-        app:layout_constraintRight_toRightOf="@id/order_fragment_contract_tvInfo3"
-        app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo3" />
+        app:layout_constraintBottom_toBottomOf="@id/application_fragment_contract_tvInfo3"
+        app:layout_constraintRight_toRightOf="@id/application_fragment_contract_tvInfo3"
+        app:layout_constraintTop_toTopOf="@id/application_fragment_contract_tvInfo3" />
 
     <TextView
         android:layout_width="28dp"
@@ -117,7 +117,7 @@
         android:textColor="@color/textBold"
         android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo3" />
+        app:layout_constraintTop_toBottomOf="@id/application_fragment_contract_tvInfo3" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -128,23 +128,22 @@
         android:background="@drawable/view_border"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo3">
+        app:layout_constraintTop_toBottomOf="@id/application_fragment_contract_tvInfo3">
 
         <com.jaemion.eHub.customview.CustomCanvas
-            android:id="@+id/order_fragment_contract_canvas"
+            android:id="@+id/application_fragment_contract_canvas"
             android:layout_width="match_parent"
             android:layout_height="130dp" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/order_fragment_contract_btnContract"
+        android:id="@+id/application_fragment_contract_btnContract"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="75dp"
         android:background="@color/buttonBackground"
         android:text="계약서 작성"
         android:textColor="@color/buttonText"
-        android:textSize="18sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
-
 </android.support.constraint.ConstraintLayout>

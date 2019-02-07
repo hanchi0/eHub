@@ -65,13 +65,8 @@
 
     </android.support.design.widget.CoordinatorLayout>
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/main_nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/main_nav_header_ex"
-        app:menu="@menu/main_activity_drawer" />
+    <include
+        layout="@layout/main_activity_nav"
+        />
 
 </android.support.v4.widget.DrawerLayout>

@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.jaemion.eHub.R;
 import com.jaemion.eHub.main.ui.MainFragment_Main;
@@ -24,6 +25,7 @@ public class OrderFragment_Statement extends Fragment implements View.OnClickLis
     public static OrderFragment_Statement newInstance() {
         return new OrderFragment_Statement();
     }
+    TextView tvLocationData, tvDurationData, tvDurationDataSub, tvPayData, tvTypeData, tvOptionData, tvNumOfCarData, tvTotalPayData;
 
     Button btnList, btnHome, btnOrder;
 
@@ -32,13 +34,21 @@ public class OrderFragment_Statement extends Fragment implements View.OnClickLis
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.order_fragment_statement, container, false);
+        tvLocationData = view.findViewById(R.id.order_fragment_statement_tvLocationData);
+        tvDurationData = view.findViewById(R.id.order_fragment_statement_tvDurationData);
+        tvDurationDataSub = view.findViewById(R.id.order_fragment_statement_tvDurationDataSub);
+        tvPayData = view.findViewById(R.id.order_fragment_statement_tvPayData);
+        tvTypeData = view.findViewById(R.id.order_fragment_statement_tvTypeData);
+        tvOptionData = view.findViewById(R.id.order_fragment_statement_tvOptionData);
+        tvNumOfCarData = view.findViewById(R.id.order_fragment_statement_tvNumOfCarData);
+        tvTotalPayData = view.findViewById(R.id.order_fragment_statement_tvTotalPayData);
         btnHome = view.findViewById(R.id.order_fragment_statement_btnHome);
         btnList = view.findViewById(R.id.order_fragment_statement_btnList);
         btnOrder = view.findViewById(R.id.order_fragment_statement_btnOrder);
         btnHome.setOnClickListener(this);
         btnList.setOnClickListener(this);
         btnOrder.setOnClickListener(this);
-        ((OrderActivity)getActivity()).getToolbarTitle().setText("발주결과");
+        ((OrderActivity) getActivity()).getToolbarTitle().setText("발주결과");
         return view;
     }
 
@@ -52,18 +62,18 @@ public class OrderFragment_Statement extends Fragment implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.order_fragment_statement_btnOrder:
+                break;
+
             case R.id.order_fragment_statement_btnHome:
                 getActivity().finish();
                 break;
 
             case R.id.order_fragment_statement_btnList:
                 Intent resultIntent = new Intent();
-                resultIntent.putExtra("destination","List");
-                getActivity().setResult(Activity.RESULT_OK,resultIntent);
+                resultIntent.putExtra("destination", "List");
+                getActivity().setResult(Activity.RESULT_OK, resultIntent);
                 getActivity().finish();
-                break;
-
-            case R.id.order_fragment_statement_btnOrder:
                 break;
         }
     }

@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigationView.getMenu().findItem(R.id.main_navigation_dashboard).setTitle("발주 리스트");
         bottomNavigation = bottomNavigationView;
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.main_nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        /*NavigationView navigationView = (NavigationView) findViewById(R.id.main_nav_view);
+        navigationView.setNavigationItemSelectedListener(this);*/
     }
 
     @Override

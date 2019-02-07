@@ -1,5 +1,6 @@
 package com.jaemion.eHub.application.ui;
 
+import android.app.Application;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.application.ApplicationActivity;
 import com.jaemion.eHub.orderdetail.OrderDetailActivity;
 
 
@@ -79,4 +81,10 @@ public class ApplicationFragment_List extends Fragment {
         // TODO: Use the ViewModel
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((ApplicationActivity)getActivity()).setToolbar("발주된 작업 목록");
+        ((ApplicationActivity)getActivity()).getSupportActionBar().show();
+    }
 }

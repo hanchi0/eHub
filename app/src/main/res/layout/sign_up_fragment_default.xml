@@ -51,11 +51,11 @@
     <Button
         android:id="@+id/signUp_fragment_default_btnNext"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="60dp"
         android:background="#d8d8d8"
         android:text="다음"
         android:textColor="#ffffffff"
-        android:textSize="25sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 </android.support.constraint.ConstraintLayout>

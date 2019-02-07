@@ -72,7 +72,8 @@
             android:id="@+id/order_detail_cardview_btnReject"
             android:layout_width="0dp"
             android:layout_height="45dp"
-            android:background="@color/buttonBackgroundHighlight"
+            android:background="#2f5b5a
+"
             android:text="거절"
             android:textColor="@color/buttonTextHighlight"
             android:textSize="15sp"

@@ -21,14 +21,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/main_fragment_list_cardView_tvKind"
+            android:id="@+id/main_fragment_list_cardView_tvType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:text="필요장비"
-            android:textSize="20sp"
             android:textColor="@color/textBold"
+            android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/main_fragment_list_cardView_iv" />
 
@@ -40,7 +40,18 @@
             android:layout_marginTop="10dp"
             android:text="작업기간 쓸거임"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/main_fragment_list_cardView_tvKind" />
+            app:layout_constraintTop_toBottomOf="@id/main_fragment_list_cardView_tvType" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="7.5dp"
+            android:layout_marginRight="20dp"
+            android:background="#dde2e3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/main_fragment_list_cardView_tvDuration" />
 
         <TextView
             android:id="@+id/main_fragment_list_cardView_tvTitle"
@@ -56,8 +67,8 @@
             android:id="@+id/main_fragment_list_cardView_tvNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1/00명"
             android:layout_marginRight="11dp"
+            android:text="1/00명"
             app:layout_constraintRight_toLeftOf="@id/main_fragment_list_cardView_tvPay"
             app:layout_constraintTop_toBottomOf="@id/main_fragment_list_cardView_tvTitle" />
 
@@ -67,8 +78,8 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:text="000만원"
-            android:textSize="16sp"
             android:textColor="@color/textBold"
+            android:textSize="16sp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/main_fragment_list_cardView_tvTitle" />
     </android.support.constraint.ConstraintLayout>

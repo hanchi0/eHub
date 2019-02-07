@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:descendantFocusability="blocksDescendants"
     >
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        app:elevation="0dp">
+        app:elevation="0dp"
+        >
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/background_light"
             app:contentScrim="@android:color/darker_gray"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
@@ -27,13 +26,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/temp_imageview"
-                app:layout_collapseMode="parallax" />
+                app:layout_collapseMode="parallax"
+                android:fitsSystemWindows="true"/>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/order_detail_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin" />
+                app:layout_collapseMode="pin"
+                android:fitsSystemWindows="true" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
@@ -57,7 +58,7 @@
                 android:background="@drawable/view_border">
 
                 <TextView
-                    android:id="@+id/order_detail_tvKind"
+                    android:id="@+id/order_detail_tvType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -76,7 +77,18 @@
                     android:layout_marginTop="10dp"
                     android:text="작업기간 쓸거임"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/order_detail_tvKind" />
+                    app:layout_constraintTop_toBottomOf="@id/order_detail_tvType" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="7.5dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#dde2e3"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/order_detail_tvDuration" />
 
                 <TextView
                     android:id="@+id/order_detail_tvTitle"
@@ -89,7 +101,7 @@
                     app:layout_constraintTop_toBottomOf="@id/order_detail_tvDuration" />
 
                 <TextView
-                    android:id="@+id/main_fragment_list_cardView_tvNum"
+                    android:id="@+id/order_detail_tvNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="11dp"

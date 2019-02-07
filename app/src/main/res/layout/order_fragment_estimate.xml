@@ -237,19 +237,19 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_plus"
-            android:layout_alignTop="@id/order_fragment_estimate_btnPlus"
-            android:layout_alignBottom="@id/order_fragment_estimate_btnPlus"
-            android:layout_alignRight="@id/order_fragment_estimate_btnPlus"
             android:layout_alignLeft="@id/order_fragment_estimate_btnPlus"
+            android:layout_alignTop="@id/order_fragment_estimate_btnPlus"
+            android:layout_alignRight="@id/order_fragment_estimate_btnPlus"
+            android:layout_alignBottom="@id/order_fragment_estimate_btnPlus"
+            android:layout_margin="15dp"
             android:elevation="2dp"
-            android:layout_margin="15dp"/>
+            android:src="@drawable/ic_plus" />
 
 
         <Button
             android:id="@+id/order_fragment_estimate_btnOrder"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="60dp"
             android:layout_below="@id/order_fragment_estimate_tvNumOfCar"
             android:layout_marginTop="69dp"
             android:background="@color/buttonBackground"

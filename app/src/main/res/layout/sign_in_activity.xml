@@ -86,7 +86,7 @@
             android:background="@color/buttonBackgroundHighlight"
             android:text="로그인"
             android:textColor="@color/buttonTextHighlight"
-            android:textSize="19sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />

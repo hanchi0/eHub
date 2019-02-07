@@ -13,8 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".application.ApplicationActivity"></activity>
-        <activity android:name=".orderdetail.OrderDetailActivity" />
+        <activity
+            android:name=".application.ApplicationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".orderdetail.OrderDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".signin.SignInActivity"
             android:screenOrientation="portrait" />
