@@ -53,4 +53,87 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_activity_nav_ivProfile" />
 
+    <TextView
+        android:id="@+id/main_activity_nav_tvNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="38dp"
+        android:text="공지사항"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_activity_nav_ivProfile" />
+
+    <ImageView
+        android:id="@+id/main_activity_nav_ivNotice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/main_activity_nav_tvNotice"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/main_activity_nav_tvNotice"
+        app:srcCompat="@drawable/ic_right_black" />
+
+    <TextView
+        android:id="@+id/main_activity_nav_tvSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="26dp"
+        android:text="설정"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_activity_nav_tvNotice" />
+
+    <ImageView
+        android:id="@+id/main_activity_nav_ivSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/main_activity_nav_tvSetting"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/main_activity_nav_tvSetting"
+        app:srcCompat="@drawable/ic_right_black" />
+
+    <TextView
+        android:id="@+id/main_activity_nav_tvInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="26dp"
+        android:text="정보"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_activity_nav_tvSetting" />
+
+    <ImageView
+        android:id="@+id/main_activity_nav_ivInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/main_activity_nav_tvInfo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/main_activity_nav_tvInfo"
+        app:srcCompat="@drawable/ic_right_black" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="17.5dp"
+        android:background="#e3e3e3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_activity_nav_tvInfo" />
+
+    <TextView
+        android:id="@+id/main_activity_nav_tvLogOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="37dp"
+        android:text="로그아웃"
+        android:textSize="11sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_activity_nav_tvInfo" />
+
 </android.support.constraint.ConstraintLayout>
