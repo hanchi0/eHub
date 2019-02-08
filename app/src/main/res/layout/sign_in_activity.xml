@@ -9,8 +9,8 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:elevation="0dp"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        app:elevation="0dp">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/signIn_toolbar"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="155dp"
             android:text="로그인"
-            android:textColor="@color/textBold"
+            android:textColor="@android:color/black"
             android:textSize="19sp"
             app:layout_constraintLeft_toLeftOf="@id/signIn_etId"
             app:layout_constraintTop_toTopOf="parent" />
@@ -83,9 +83,9 @@
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginTop="1dp"
-            android:background="@color/buttonBackgroundHighlight"
+            android:background="@color/button_background_disable"
             android:text="로그인"
-            android:textColor="@color/buttonTextHighlight"
+            android:textColor="@color/button_text_disable"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

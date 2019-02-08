@@ -27,7 +27,7 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="18dp"
             android:text="성함"
-            android:textColor="@color/textBold"
+            android:textColor="@android:color/black"
             android:textSize="17sp"
             app:layout_constraintLeft_toRightOf="@id/order_detail_cardview_ivTitle"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +39,7 @@
             android:layout_marginLeft="7dp"
             android:layout_marginTop="21dp"
             android:text="n년차"
-            android:textColor="@color/textBold"
+            android:textColor="@android:color/black"
             android:textSize="15sp"
             app:layout_constraintLeft_toRightOf="@id/order_detail_cardview_tvTitle"
             app:layout_constraintTop_toTopOf="parent" />
@@ -51,7 +51,6 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="8dp"
             android:text="차량옵션"
-            android:textColor="@color/textNormal"
             android:textSize="14sp"
             app:layout_constraintLeft_toRightOf="@id/order_detail_cardview_ivTitle"
             app:layout_constraintTop_toBottomOf="@id/order_detail_cardview_tvTitle" />
@@ -63,7 +62,6 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="2dp"
             android:text="지역구"
-            android:textColor="@color/textNormal"
             android:textSize="14sp"
             app:layout_constraintLeft_toRightOf="@id/order_detail_cardview_ivTitle"
             app:layout_constraintTop_toBottomOf="@id/order_detail_cardview_tvOption" />
@@ -72,11 +70,10 @@
             android:id="@+id/order_detail_cardview_btnReject"
             android:layout_width="0dp"
             android:layout_height="45dp"
-            android:background="#2f5b5a
-"
+            android:background="@color/dark_green"
             android:text="거절"
-            android:textColor="@color/buttonTextHighlight"
             android:textSize="15sp"
+            android:textColor="@color/button_text_enable"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/order_detail_cardview_btnAccept" />
@@ -85,9 +82,9 @@
             android:id="@+id/order_detail_cardview_btnAccept"
             android:layout_width="0dp"
             android:layout_height="45dp"
-            android:background="@color/buttonBackgroundHighlight"
+            android:background="@color/button_background_enable"
             android:text="승인"
-            android:textColor="@color/buttonTextHighlight"
+            android:textColor="@color/button_text_enable"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/order_detail_cardview_btnReject"

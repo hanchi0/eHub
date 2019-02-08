@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="99dp"
         android:text="회원가입"
-        android:textColor="@color/textBold"
+        android:textColor="@android:color/black"
         android:textSize="19sp"
         app:layout_constraintLeft_toLeftOf="@id/signUp_fragment_select_btnEmployer"
         app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +54,7 @@
         android:clickable="false"
         android:elevation="2dp"
         android:text="일할 사람을 찾으시나요?"
-        android:textColor="@color/buttonTextHighlight"
+        android:textColor="@color/button_text_enable"
         android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="@id/signUp_fragment_select_btnEmployer"
         app:layout_constraintTop_toTopOf="@id/signUp_fragment_select_btnEmployer" />
@@ -67,7 +67,7 @@
         android:clickable="false"
         android:elevation="2dp"
         android:text="발주 회원"
-        android:textColor="@color/buttonTextHighlight"
+        android:textColor="@color/button_text_enable"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="@id/signUp_fragment_select_btnEmployer"
         app:layout_constraintTop_toTopOf="@id/signUp_fragment_select_btnEmployer" />
@@ -101,7 +101,7 @@
         android:clickable="false"
         android:elevation="2dp"
         android:text="일할 현장을 찾으시나요?"
-        android:textColor="@color/buttonTextHighlight"
+        android:textColor="@color/button_text_enable"
         android:textSize="14sp"
         app:layout_constraintRight_toRightOf="@id/signUp_fragment_select_btnEmployee"
         app:layout_constraintTop_toTopOf="@id/signUp_fragment_select_btnEmployee" />
@@ -114,7 +114,7 @@
         android:clickable="false"
         android:elevation="2dp"
         android:text="수주 회원"
-        android:textColor="@color/buttonTextHighlight"
+        android:textColor="@color/button_text_enable"
         android:textSize="20sp"
         app:layout_constraintRight_toRightOf="@id/signUp_fragment_select_btnEmployee"
         app:layout_constraintTop_toTopOf="@id/signUp_fragment_select_btnEmployee" />

@@ -21,7 +21,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="28dp"
             android:text="이미지 업로드"
-            android:textColor="@color/textBold"
+            android:textColor="@android:color/black"
             android:textSize="15sp" />
 
         <ImageView
@@ -64,7 +64,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:text="발주작업명"
-            android:textColor="@color/textBold"
+            android:textColor="@android:color/black"
             android:textSize="15sp" />
 
         <EditText
@@ -85,7 +85,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:text="작업일정"
-            android:textColor="@color/textBold"
+            android:textColor="@android:color/black"
             android:textSize="15sp" />
 
         <TextView
@@ -118,7 +118,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:text="현장주소입력"
-            android:textColor="@color/textBold"
+            android:textColor="@android:color/black"
             android:textSize="15sp" />
 
         <EditText
@@ -139,7 +139,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:text="차량옵션입력"
-            android:textColor="@color/textBold"
+            android:textColor="@android:color/black"
             android:textSize="15sp" />
 
         <Spinner
@@ -168,7 +168,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:text="작업단가"
-            android:textColor="@color/textBold"
+            android:textColor="@android:color/black"
             android:textSize="15sp" />
 
         <EditText
@@ -190,7 +190,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="31dp"
             android:text="차량수"
-            android:textColor="@color/textBold"
+            android:textColor="@android:color/black"
             android:textSize="15sp" />
 
         <Button
@@ -252,9 +252,9 @@
             android:layout_height="60dp"
             android:layout_below="@id/order_fragment_estimate_tvNumOfCar"
             android:layout_marginTop="69dp"
-            android:background="@color/buttonBackground"
+            android:background="@color/button_background_disable"
             android:text="발주하기"
-            android:textColor="@color/buttonText"
+            android:textColor="@color/button_text_disable"
             android:textSize="18sp" />
     </RelativeLayout>
 </ScrollView>

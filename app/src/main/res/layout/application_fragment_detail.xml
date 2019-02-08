@@ -52,7 +52,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="15dp"
                 android:text="포크레인구합니다."
-                android:textColor="@color/textBold"
+                android:textColor="@android:color/black"
                 android:textSize="19sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -75,7 +75,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="27dp"
                 android:text="현장 정보"
-                android:textColor="@color/textBold"
+                android:textColor="@android:color/black"
                 android:textSize="15sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvTitle" />
@@ -97,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:text="서울특별시 00구 00로 00길 00 000"
-                android:textColor="@color/textBold"
+                android:textColor="@android:color/black"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvLocation"
                 app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvLocation" />
@@ -119,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:text="2019.01.16(수) - 2019.01.20(일)"
-                android:textColor="@color/textBold"
+                android:textColor="@android:color/black"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvDuration"
                 app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvDuration" />
@@ -129,7 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4일"
-                android:textColor="@color/textBold"
+                android:textColor="@android:color/black"
                 android:textSize="15sp"
                 app:layout_constraintLeft_toLeftOf="@id/application_fragment_detail_tvDurationData"
                 app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvDurationData" />
@@ -151,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:text="30만원"
-                android:textColor="@color/textBold"
+                android:textColor="@android:color/black"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvPay"
                 app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvPay" />
@@ -174,7 +174,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="24dp"
                 android:text="필요 장비 정보"
-                android:textColor="@color/textBold"
+                android:textColor="@android:color/black"
                 android:textSize="15sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvPay" />
@@ -196,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="포크레인"
-                android:textColor="@color/textBold"
+                android:textColor="@android:color/black"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvType"
                 app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvType" />
@@ -218,7 +218,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="옵션 추출 값 표기"
-                android:textColor="@color/textBold"
+                android:textColor="@android:color/black"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvOption"
                 app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvOption" />
@@ -239,7 +239,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3대"
-                android:textColor="@color/textBold"
+                android:textColor="@android:color/black"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="@id/application_fragment_detail_tvOptionData"
                 app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvNumOfCar" />
@@ -262,7 +262,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="22dp"
                 android:text="총 금액"
-                android:textColor="@color/textBold"
+                android:textColor="@android:color/black"
                 android:textSize="15sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvNumOfCar" />
@@ -283,7 +283,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="120만원"
-                android:textColor="@color/textBold"
+                android:textColor="@android:color/black"
                 android:textSize="17sp"
                 app:layout_constraintRight_toRightOf="@id/application_fragment_detail_tvTotalPayContents"
                 app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvTotalPayContents" />
@@ -295,8 +295,8 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="bottom"
-        android:background="@color/buttonBackgroundHighlight"
+        android:background="@color/button_background_disable"
         android:text="수주하기"
-        android:textColor="@color/buttonTextHighlight"
+        android:textColor="@color/button_text_disable"
         android:textSize="18sp" />
 </android.support.design.widget.CoordinatorLayout>

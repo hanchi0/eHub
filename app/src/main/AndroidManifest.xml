@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".userinfo.UserInfoActivity"></activity>
+        <activity android:name=".secession.SecessionActivity"></activity>
+        <activity android:name=".userinfo.UserInfoActivity" />
         <activity
             android:name=".application.ApplicationActivity"
             android:screenOrientation="portrait" />

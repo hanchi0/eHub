@@ -12,17 +12,24 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.TextView;
 
 import com.jaemion.eHub.R;
 import com.jaemion.eHub.main.ui.MainFragment_List;
 import com.jaemion.eHub.main.ui.MainFragment_Main;
+import com.jaemion.eHub.signin.SignInActivity;
+import com.jaemion.eHub.userinfo.UserInfoActivity;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemReselectedListener, NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemReselectedListener, View.OnClickListener {
     BottomNavigationView bottomNavigation;
     TextView toolbarTitle;
+    DrawerLayout drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbarTitle = findViewById(R.id.main_toolbar_title);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.main_drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.main_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -47,14 +54,16 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigationView.getMenu().findItem(R.id.main_navigation_home).setTitle("발주하기");
         bottomNavigationView.getMenu().findItem(R.id.main_navigation_dashboard).setTitle("발주 리스트");
         bottomNavigation = bottomNavigationView;
-
-        /*NavigationView navigationView = (NavigationView) findViewById(R.id.main_nav_view);
-        navigationView.setNavigationItemSelectedListener(this);*/
+        findViewById(R.id.main_activity_nav_layout).setOnClickListener(this);
+        findViewById(R.id.main_activity_nav_ivMyPage).setOnClickListener(this);
+        findViewById(R.id.main_activity_nav_ivNotice).setOnClickListener(this);
+        findViewById(R.id.main_activity_nav_ivSetting).setOnClickListener(this);
+        findViewById(R.id.main_activity_nav_ivInfo).setOnClickListener(this);
+        findViewById(R.id.main_activity_nav_tvLogOut).setOnClickListener(this);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.main_drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -95,7 +104,29 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     }
 
-    public TextView getToolbarTitle(){
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.main_activity_nav_ivMyPage:
+                Intent intent = new Intent(this, UserInfoActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.main_activity_nav_ivNotice:
+                break;
+
+            case R.id.main_activity_nav_ivSetting:
+                break;
+
+            case R.id.main_activity_nav_ivInfo:
+                break;
+
+            case R.id.main_activity_nav_tvLogOut:
+                break;
+        }
+    }
+
+    public TextView getToolbarTitle() {
         return toolbarTitle;
     }
 }

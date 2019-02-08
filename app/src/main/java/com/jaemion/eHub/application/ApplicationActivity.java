@@ -17,6 +17,8 @@ public class ApplicationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.application_activity);
+        toolbar = findViewById(R.id.application_toolbar);
+        toolbarTitle = findViewById(R.id.application_toolbar_title);
         setToolbar("발주된 작업 목록");
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -38,11 +40,8 @@ public class ApplicationActivity extends AppCompatActivity {
     }
 
     public void setToolbar(String title){
-        toolbar = findViewById(R.id.application_toolbar);
-        toolbarTitle = findViewById(R.id.application_toolbar_title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbarTitle.setText(title);
-
     }
 }

@@ -14,7 +14,7 @@
         android:background="@drawable/view_border"
         android:gravity="center"
         android:text="계약서에 표기되는 내용"
-        android:textColor="@color/textBold"
+        android:textColor="@android:color/black"
         android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +48,7 @@
         android:background="@drawable/view_border"
         android:gravity="center"
         android:text="계약서에 표기되는 내용"
-        android:textColor="@color/textBold"
+        android:textColor="@android:color/black"
         android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo1" />
@@ -82,7 +82,7 @@
         android:background="@drawable/view_border"
         android:gravity="center"
         android:text="계약서에 표기되는 내용"
-        android:textColor="@color/textBold"
+        android:textColor="@android:color/black"
         android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo2" />
@@ -114,7 +114,7 @@
         android:layout_marginTop="74dp"
         android:gravity="center"
         android:text="서명"
-        android:textColor="@color/textBold"
+        android:textColor="@android:color/black"
         android:textSize="15sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo3" />
@@ -140,9 +140,9 @@
         android:id="@+id/order_fragment_contract_btnContract"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/buttonBackground"
+        android:background="@color/button_background_disable"
         android:text="계약서 작성"
-        android:textColor="@color/buttonText"
+        android:textColor="@color/button_text_disable"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

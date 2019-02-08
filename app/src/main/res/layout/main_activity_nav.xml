@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_activity_nav_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="start"
@@ -8,9 +9,7 @@
     android:divider="#23222A"
     android:dividerHeight="1dp"
     android:fitsSystemWindows="true"
-    android:orientation="vertical"
-
-    >
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/main_activity_nav_ivProfile"
@@ -28,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:text="홍길동"
-        android:textColor="@color/textBold"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@id/main_activity_nav_ivProfile"
         app:layout_constraintLeft_toRightOf="@id/main_activity_nav_ivProfile"

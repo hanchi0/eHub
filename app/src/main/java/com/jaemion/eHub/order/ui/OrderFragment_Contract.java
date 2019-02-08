@@ -43,12 +43,12 @@ public class OrderFragment_Contract extends Fragment implements View.OnClickList
             public void onTouch() {
                 if (cb1.isChecked() && cb2.isChecked() && cb3.isChecked() && customCanvas.getIsTouched()) {
                     btnContract.setEnabled(true);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.buttonBackgroundHighlight));
-                    btnContract.setTextColor(getResources().getColor(R.color.buttonTextHighlight));
+                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_enable));
+                    btnContract.setTextColor(getResources().getColor(R.color.button_text_enable));
                 } else {
                     btnContract.setEnabled(false);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.buttonBackground));
-                    btnContract.setTextColor(getResources().getColor(R.color.buttonText));
+                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+                    btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
                 }
             }
         });
@@ -57,8 +57,8 @@ public class OrderFragment_Contract extends Fragment implements View.OnClickList
         cb3.setOnClickListener(this);
         btnContract.setOnClickListener(this);
         btnContract.setEnabled(false);
-        btnContract.setBackgroundColor(getResources().getColor(R.color.buttonBackground));
-        btnContract.setTextColor(getResources().getColor(R.color.buttonText));
+        btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+        btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
 
         ((OrderActivity) getActivity()).getToolbarTitle().setText("약관 및 계약서");
         return view;
@@ -86,12 +86,12 @@ public class OrderFragment_Contract extends Fragment implements View.OnClickList
             case R.id.order_fragment_contract_cb3:
                 if (cb1.isChecked() && cb2.isChecked() && cb3.isChecked() && customCanvas.getIsTouched()) {
                     btnContract.setEnabled(true);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.buttonBackgroundHighlight));
-                    btnContract.setTextColor(getResources().getColor(R.color.buttonTextHighlight));
+                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_enable));
+                    btnContract.setTextColor(getResources().getColor(R.color.button_text_enable));
                 } else {
                     btnContract.setEnabled(false);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.buttonBackground));
-                    btnContract.setTextColor(getResources().getColor(R.color.buttonText));
+                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+                    btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
                 }
                 break;
         }

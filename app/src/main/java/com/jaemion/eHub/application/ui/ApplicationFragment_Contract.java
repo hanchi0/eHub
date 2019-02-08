@@ -44,12 +44,12 @@ public class ApplicationFragment_Contract extends Fragment implements View.OnCli
             public void onTouch() {
                 if (cb1.isChecked() && cb2.isChecked() && cb3.isChecked() && customCanvas.getIsTouched()) {
                     btnContract.setEnabled(true);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.buttonBackgroundHighlight));
-                    btnContract.setTextColor(getResources().getColor(R.color.buttonTextHighlight));
+                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_enable));
+                    btnContract.setTextColor(getResources().getColor(R.color.button_text_enable));
                 } else {
                     btnContract.setEnabled(false);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.buttonBackground));
-                    btnContract.setTextColor(getResources().getColor(R.color.buttonText));
+                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+                    btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
                 }
             }
         });
@@ -58,8 +58,8 @@ public class ApplicationFragment_Contract extends Fragment implements View.OnCli
         cb3.setOnClickListener(this);
         btnContract.setOnClickListener(this);
         btnContract.setEnabled(false);
-        btnContract.setBackgroundColor(getResources().getColor(R.color.buttonBackground));
-        btnContract.setTextColor(getResources().getColor(R.color.buttonText));
+        btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+        btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
         return view;
     }
 
@@ -92,12 +92,12 @@ public class ApplicationFragment_Contract extends Fragment implements View.OnCli
             case R.id.application_fragment_contract_cb3:
                 if (cb1.isChecked() && cb2.isChecked() && cb3.isChecked() && customCanvas.getIsTouched()) {
                     btnContract.setEnabled(true);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.buttonBackgroundHighlight));
-                    btnContract.setTextColor(getResources().getColor(R.color.buttonTextHighlight));
+                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_enable));
+                    btnContract.setTextColor(getResources().getColor(R.color.button_text_enable));
                 } else {
                     btnContract.setEnabled(false);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.buttonBackground));
-                    btnContract.setTextColor(getResources().getColor(R.color.buttonText));
+                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+                    btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
                 }
                 break;
         }

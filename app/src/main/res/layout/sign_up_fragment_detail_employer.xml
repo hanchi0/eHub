@@ -36,8 +36,7 @@
         android:background="@drawable/view_border"
         android:hint="사업자등록번호"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employer_etPhone"
-        />
+        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employer_etPhone" />
 
     <EditText
         android:id="@+id/signUp_fragment_detail_employer_etNick"
@@ -48,16 +47,15 @@
         android:background="@drawable/view_border"
         android:hint="별명"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employer_etCRN"
-        />
+        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employer_etCRN" />
 
     <Button
         android:id="@+id/signUp_fragment_detail_employer_btnSkip"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="#d8d8d8"
+        android:background="@color/button_background_disable"
         android:text="건너뛰기"
-        android:textColor="#ffffffff"
+        android:textColor="@color/button_text_disable"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -69,9 +67,9 @@
         android:id="@+id/signUp_fragment_detail_employer_btnSignUp"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="#d8d8d8"
+        android:background="@color/button_background_disable"
         android:text="회원가입"
-        android:textColor="#ffffffff"
+        android:textColor="@color/button_text_disable"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_weight="1"
