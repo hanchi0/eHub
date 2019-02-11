@@ -6,48 +6,44 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light">
 
-    <TextView
-        android:layout_width="56dp"
-        android:layout_height="22dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="498dp"
-        android:text="추가정보"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
 
     <EditText
         android:id="@+id/signUp_fragment_detail_employer_etPhone"
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="433dp"
+        android:layout_marginTop="29.5dp"
         android:background="@drawable/view_border"
         android:hint="연락처"
         android:inputType="phone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:nextFocusDown="@id/signUp_fragment_detail_employer_etBnum"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/signUp_fragment_detail_employer_etCRN"
+        android:id="@+id/signUp_fragment_detail_employer_etBnum"
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/view_border"
         android:hint="사업자등록번호"
+        android:inputType="number"
+        android:nextFocusDown="@id/signUp_fragment_detail_employer_etNick"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employer_etPhone" />
 
     <EditText
         android:id="@+id/signUp_fragment_detail_employer_etNick"
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/view_border"
         android:hint="별명"
+        android:inputType="text"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employer_etCRN" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employer_etBnum" />
 
     <Button
         android:id="@+id/signUp_fragment_detail_employer_btnSkip"

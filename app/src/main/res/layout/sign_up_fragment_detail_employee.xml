@@ -5,84 +5,95 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light">
 
-    <TextView
-        android:layout_width="56dp"
-        android:layout_height="22dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="498dp"
-        android:text="추가정보"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/signUp_fragment_detail_employee_etPhone"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="433dp"
-        android:hint="연락처"
-        android:inputType="phone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/signUp_fragment_detail_employee_etCRN"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
-        android:hint="사업자등록번호"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employee_etPhone" />
+            <ImageView
+                android:id="@+id/signUp_fragment_detail_employee_ivProfile"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="19.5dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/temp_imageview" />
 
-    <EditText
-        android:id="@+id/signUp_fragment_detail_employee_etNick"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
-        android:hint="별명"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employee_etCRN" />
+            <EditText
+                android:id="@+id/signUp_fragment_detail_employee_etPhone"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:hint="휴대폰 번호"
+                android:inputType="phone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employee_ivProfile" />
 
-    <EditText
-        android:id="@+id/signUp_fragment_detail_employee_etCarType"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
-        android:hint="차종"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employee_etNick" />
+            <EditText
+                android:id="@+id/signUp_fragment_detail_employee_etCRN"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:hint="사업자등록번호"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employee_etPhone" />
 
-    <EditText
-        android:id="@+id/signUp_fragment_detail_employee_etRadius"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
-        android:hint="작업반경"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employee_etCarType" />
+            <EditText
+                android:id="@+id/signUp_fragment_detail_employee_etNick"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:hint="별명"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employee_etCRN" />
 
-    <EditText
-        android:id="@+id/signUp_fragment_detail_employee_etLocation"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
-        android:hint="작업지역"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employee_etRadius" />
+            <EditText
+                android:id="@+id/signUp_fragment_detail_employee_etCarType"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:hint="차종"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employee_etNick" />
 
-    <android.support.v7.widget.AppCompatCheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="11dp"
-        android:text="안전검사차량"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employee_etLocation" />
+            <EditText
+                android:id="@+id/signUp_fragment_detail_employee_etRadius"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:hint="작업반경"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employee_etCarType" />
+
+            <EditText
+                android:id="@+id/signUp_fragment_detail_employee_etLocation"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:hint="작업지역"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employee_etRadius" />
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/signUp_fragment_detail_employee_chIsSafe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:text="안전검사차량"
+                app:layout_constraintLeft_toLeftOf="@id/signUp_fragment_detail_employee_etLocation"
+                app:layout_constraintTop_toBottomOf="@id/signUp_fragment_detail_employee_etLocation" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/signUp_fragment_detail_employee_btnSkip"
@@ -110,4 +121,5 @@
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toRightOf="@id/signUp_fragment_detail_employee_btnSkip"
         app:layout_constraintRight_toRightOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

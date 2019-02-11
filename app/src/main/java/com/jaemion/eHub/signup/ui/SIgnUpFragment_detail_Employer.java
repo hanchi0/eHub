@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.jaemion.eHub.R;
 import com.jaemion.eHub.main.MainActivity;
+import com.jaemion.eHub.signup.SignUpActivity;
 
 public class SIgnUpFragment_detail_Employer extends Fragment implements View.OnClickListener{
     private SignUpViewModel mViewModel;
@@ -39,6 +40,13 @@ public class SIgnUpFragment_detail_Employer extends Fragment implements View.OnC
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);
         // TODO: Use the ViewModel
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((SignUpActivity) getActivity()).setToolbar("추가 정보 입력");
+        ((SignUpActivity) getActivity()).getSupportActionBar().show();
     }
 
     @Override

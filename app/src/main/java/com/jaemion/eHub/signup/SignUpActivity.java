@@ -12,6 +12,8 @@ import com.jaemion.eHub.R;
 import com.jaemion.eHub.signup.ui.SignUpFragment_Select;
 
 public class SignUpActivity extends AppCompatActivity {
+    Toolbar toolbar;
+    TextView toolbarTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +24,8 @@ public class SignUpActivity extends AppCompatActivity {
                     .replace(R.id.signUp_container, SignUpFragment_Select.newInstance())
                     .commitNow();
         }
-        Toolbar toolbar = (Toolbar) findViewById(R.id.signUp_toolbar);
+        toolbar = (Toolbar) findViewById(R.id.signUp_toolbar);
+        toolbarTitle = findViewById(R.id.signUp_toolbar_title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -33,12 +36,18 @@ public class SignUpActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                if(getSupportFragmentManager().getBackStackEntryCount() <= 0)
+                if (getSupportFragmentManager().getBackStackEntryCount() <= 0)
                     finish();
                 else
                     getSupportFragmentManager().popBackStack();
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setToolbar(String title) {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbarTitle.setText(title);
     }
 }

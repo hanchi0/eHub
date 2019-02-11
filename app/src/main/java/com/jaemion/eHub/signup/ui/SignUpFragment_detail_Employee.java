@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.jaemion.eHub.R;
 import com.jaemion.eHub.main.MainActivity;
+import com.jaemion.eHub.signup.SignUpActivity;
 
 public class SignUpFragment_detail_Employee extends Fragment implements View.OnClickListener {
     private SignUpViewModel mViewModel;
@@ -42,9 +43,16 @@ public class SignUpFragment_detail_Employee extends Fragment implements View.OnC
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        ((SignUpActivity) getActivity()).setToolbar("추가 정보 입력");
+        ((SignUpActivity) getActivity()).getSupportActionBar().show();
+    }
+
+    @Override
     public void onClick(View v) {
         Intent intent = null;
-        switch(v.getId()){
+        switch (v.getId()) {
             case R.id.signUp_fragment_detail_employee_btnSignUp:
                 intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
