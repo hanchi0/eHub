@@ -1,14 +1,13 @@
 package com.jaemion.eHub.main.ui;
 
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.gesture.Gesture;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -19,7 +18,6 @@ import com.jaemion.eHub.R;
 import com.jaemion.eHub.application.ApplicationActivity;
 import com.jaemion.eHub.customview.CustomViewPager;
 import com.jaemion.eHub.main.MainActivity;
-import com.jaemion.eHub.order.OrderActivity;
 
 import static android.app.Activity.RESULT_OK;
 

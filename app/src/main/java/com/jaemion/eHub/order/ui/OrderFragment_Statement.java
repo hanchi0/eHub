@@ -1,14 +1,13 @@
 package com.jaemion.eHub.order.ui;
 
 import android.app.Activity;
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.jaemion.eHub.R;
-import com.jaemion.eHub.main.ui.MainFragment_Main;
 import com.jaemion.eHub.order.OrderActivity;
 
 public class OrderFragment_Statement extends Fragment implements View.OnClickListener {

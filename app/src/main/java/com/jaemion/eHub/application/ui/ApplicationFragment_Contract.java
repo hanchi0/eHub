@@ -1,10 +1,10 @@
 package com.jaemion.eHub.application.ui;
 
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +14,6 @@ import android.widget.CheckBox;
 import com.jaemion.eHub.R;
 import com.jaemion.eHub.application.ApplicationActivity;
 import com.jaemion.eHub.customview.CustomCanvas;
-import com.jaemion.eHub.order.ui.OrderFragment_Statement;
 
 public class ApplicationFragment_Contract extends Fragment implements View.OnClickListener {
     private ApplicationViewModel mViewModel;

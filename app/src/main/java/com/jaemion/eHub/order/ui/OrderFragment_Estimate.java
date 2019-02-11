@@ -1,23 +1,19 @@
 package com.jaemion.eHub.order.ui;
 
 import android.app.DatePickerDialog;
-import android.arch.lifecycle.ViewModelProviders;
-import android.content.ClipData;
-import android.content.ContentResolver;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.ExifInterface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -27,7 +23,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -35,12 +30,9 @@ import com.jaemion.eHub.R;
 import com.jaemion.eHub.order.OrderActivity;
 
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-import static android.app.Activity.RESULT_OK;
 
 public class OrderFragment_Estimate extends Fragment implements View.OnClickListener {
 

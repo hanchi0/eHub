@@ -1,8 +1,7 @@
 package com.jaemion.eHub.signup.ui;
 
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel;
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
 public class SignUpViewModel extends ViewModel {

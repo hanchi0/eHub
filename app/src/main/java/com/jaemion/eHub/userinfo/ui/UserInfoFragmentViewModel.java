@@ -1,6 +1,6 @@
 package com.jaemion.eHub.userinfo.ui;
 
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel;
 
 public class UserInfoFragmentViewModel extends ViewModel {
     // TODO: Implement the ViewModel
