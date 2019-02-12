@@ -46,14 +46,14 @@ public class OrderFragment_Statement extends Fragment implements View.OnClickLis
         btnHome.setOnClickListener(this);
         btnList.setOnClickListener(this);
         btnOrder.setOnClickListener(this);
-        ((OrderActivity) getActivity()).getToolbarTitle().setText("발주결과");
+        ((OrderActivity) getActivity()).setToolbar("발주 결과");
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(OrderViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(OrderViewModel.class);
         // TODO: Use the ViewModel
     }
 

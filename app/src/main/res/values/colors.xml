@@ -6,6 +6,7 @@
     <color name="dark_green">#2f5b5a</color>
     <color name="default_green">#009688</color>
     <color name="button_background_enable">#009688</color>
+    <color name="button_background_enable_dark">#2f5b5a</color>
     <color name="button_background_disable">#f4f6f7</color>
     <color name="button_text_disable">#637079</color>
     <color name="button_text_enable">#ffffff</color>

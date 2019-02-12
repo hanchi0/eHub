@@ -1,7 +1,9 @@
 package com.jaemion.eHub.order.ui;
 
 import androidx.lifecycle.ViewModelProviders;
+
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -40,15 +42,7 @@ public class OrderFragment_Contract extends Fragment implements View.OnClickList
         customCanvas.setTouchListener(new CustomCanvas.TouchListener() {
             @Override
             public void onTouch() {
-                if (cb1.isChecked() && cb2.isChecked() && cb3.isChecked() && customCanvas.getIsTouched()) {
-                    btnContract.setEnabled(true);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_enable));
-                    btnContract.setTextColor(getResources().getColor(R.color.button_text_enable));
-                } else {
-                    btnContract.setEnabled(false);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
-                    btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
-                }
+                checkButtonAble();
             }
         });
         cb1.setOnClickListener(this);
@@ -56,17 +50,13 @@ public class OrderFragment_Contract extends Fragment implements View.OnClickList
         cb3.setOnClickListener(this);
         btnContract.setOnClickListener(this);
         btnContract.setEnabled(false);
-        btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
-        btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
-
-        ((OrderActivity) getActivity()).getToolbarTitle().setText("약관 및 계약서");
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(OrderViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(OrderViewModel.class);
         // TODO: Use the ViewModel
     }
 
@@ -83,15 +73,7 @@ public class OrderFragment_Contract extends Fragment implements View.OnClickList
             case R.id.order_fragment_contract_cb1:
             case R.id.order_fragment_contract_cb2:
             case R.id.order_fragment_contract_cb3:
-                if (cb1.isChecked() && cb2.isChecked() && cb3.isChecked() && customCanvas.getIsTouched()) {
-                    btnContract.setEnabled(true);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_enable));
-                    btnContract.setTextColor(getResources().getColor(R.color.button_text_enable));
-                } else {
-                    btnContract.setEnabled(false);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
-                    btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
-                }
+                checkButtonAble();
                 break;
         }
     }
@@ -99,6 +81,18 @@ public class OrderFragment_Contract extends Fragment implements View.OnClickList
     @Override
     public void onResume() {
         super.onResume();
-        ((ApplicationActivity) getActivity()).getSupportActionBar().show();
+        ((OrderActivity) getActivity()).setToolbar("약관 및 계약서");
+    }
+
+    void checkButtonAble() {
+        if (cb1.isChecked() && cb2.isChecked() && cb3.isChecked() && customCanvas.getIsTouched()) {
+            btnContract.setEnabled(true);
+            btnContract.setBackground(getResources().getDrawable(R.drawable.button_ripple_enable));
+            btnContract.setTextColor(getResources().getColor(R.color.button_text_enable));
+        } else {
+            btnContract.setEnabled(false);
+            btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+            btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
+        }
     }
 }

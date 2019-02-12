@@ -13,6 +13,7 @@ import com.jaemion.eHub.order.ui.OrderFragment_Estimate;
 
 public class OrderActivity extends AppCompatActivity{
     TextView toolbarTitle;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +25,12 @@ public class OrderActivity extends AppCompatActivity{
                     .commitNow();
         }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.order_toolbar);
+        toolbar = (Toolbar) findViewById(R.id.order_toolbar);
+        toolbarTitle = findViewById(R.id.order_toolbar_title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_black);
-
-        toolbarTitle = findViewById(R.id.order_toolbar_title);
     }
 
     @Override
@@ -57,12 +57,9 @@ public class OrderActivity extends AppCompatActivity{
             super.onBackPressed();
     }
 
-    public TextView getToolbarTitle() {
-        return toolbarTitle;
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return false;
+    public void setToolbar(String title) {
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        toolbarTitle.setText(title);
     }
 }

@@ -6,10 +6,10 @@
     android:background="@android:color/background_light">
 
     <TextView
+        app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/application_fragment_contract_tvInfo1"
         android:layout_width="320dp"
         android:layout_height="48dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="37.5dp"
         android:background="@drawable/view_border"
         android:gravity="center"
@@ -40,10 +40,10 @@
         app:layout_constraintTop_toTopOf="@id/application_fragment_contract_tvInfo1" />
 
     <TextView
+        app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/application_fragment_contract_tvInfo2"
         android:layout_width="320dp"
         android:layout_height="48dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/view_border"
         android:gravity="center"
@@ -74,10 +74,10 @@
         app:layout_constraintTop_toTopOf="@id/application_fragment_contract_tvInfo2" />
 
     <TextView
+        app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/application_fragment_contract_tvInfo3"
         android:layout_width="320dp"
         android:layout_height="48dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/view_border"
         android:gravity="center"

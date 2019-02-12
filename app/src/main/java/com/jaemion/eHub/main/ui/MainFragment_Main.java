@@ -18,6 +18,7 @@ import com.jaemion.eHub.R;
 import com.jaemion.eHub.application.ApplicationActivity;
 import com.jaemion.eHub.customview.CustomViewPager;
 import com.jaemion.eHub.main.MainActivity;
+import com.jaemion.eHub.order.OrderActivity;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -67,7 +68,7 @@ public class MainFragment_Main extends Fragment implements  ViewPager.OnPageChan
                     intent = new Intent(getActivity(), ApplicationActivity.class);
                 else
                     return;*/
-                intent = new Intent(getActivity(), ApplicationActivity.class);
+                intent = new Intent(getActivity(), OrderActivity.class);
 
                 switch (pager.getCurrentItem()) {
                     case 1:

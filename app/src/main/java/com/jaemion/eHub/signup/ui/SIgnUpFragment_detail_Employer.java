@@ -38,7 +38,7 @@ public class SIgnUpFragment_detail_Employer extends Fragment implements View.OnC
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(SignUpViewModel.class);
         // TODO: Use the ViewModel
     }
 

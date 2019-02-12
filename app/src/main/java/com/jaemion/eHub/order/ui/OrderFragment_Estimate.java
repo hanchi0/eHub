@@ -1,6 +1,7 @@
 package com.jaemion.eHub.order.ui;
 
 import android.app.DatePickerDialog;
+
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Context;
@@ -9,9 +10,11 @@ import android.graphics.Bitmap;
 import android.media.ExifInterface;
 import android.os.Bundle;
 import android.provider.MediaStore;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,7 +80,6 @@ public class OrderFragment_Estimate extends Fragment implements View.OnClickList
         btnMinus.setOnClickListener(this);
         btnPlus.setOnClickListener(this);
 
-        //btnOrder.setEnabled(false);
         startListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -112,6 +114,7 @@ public class OrderFragment_Estimate extends Fragment implements View.OnClickList
                 finishDate = currentDateString;
             }
         };
+
         spinner.setPrompt("옵션을 선택해주세요");
         ArrayAdapter<CharSequence> aa = ArrayAdapter.createFromResource(getActivity(), R.array.option, android.R.layout.simple_spinner_item);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -133,14 +136,14 @@ public class OrderFragment_Estimate extends Fragment implements View.OnClickList
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(OrderViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(OrderViewModel.class);
         // TODO: Use the ViewModel
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        ((OrderActivity) getActivity()).getToolbarTitle().setText("발주하기");
+        ((OrderActivity) getActivity()).setToolbar("발주하기");
     }
 
     @Override
@@ -232,7 +235,7 @@ public class OrderFragment_Estimate extends Fragment implements View.OnClickList
                 break;
 
             case R.id.order_fragment_estimate_btnMinus:
-                if(numOfCar == 0)
+                if (numOfCar == 0)
                     break;
                 numOfCar -= 1;
                 tvCurrentNumOfCar.setText(String.valueOf(numOfCar));

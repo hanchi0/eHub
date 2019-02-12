@@ -18,7 +18,7 @@ import com.jaemion.eHub.signup.SignUpActivity;
 
 public class SignUpFragment_Select extends Fragment implements View.OnClickListener {
     private SignUpViewModel mViewModel;
-    Button btnEmployer, btnEmployee;
+    View btnEmployer, btnEmployee;
     TextView tvLogin;
 
     public static SignUpFragment_Select newInstance() {
@@ -43,7 +43,7 @@ public class SignUpFragment_Select extends Fragment implements View.OnClickListe
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(SignUpViewModel.class);
         // TODO: Use the ViewModel
     }
 

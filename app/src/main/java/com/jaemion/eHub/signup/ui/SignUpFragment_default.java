@@ -114,7 +114,7 @@ public class SignUpFragment_default extends Fragment implements View.OnClickList
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(SignUpViewModel.class);
         // TODO: Use the ViewModel
     }
 
@@ -147,7 +147,7 @@ public class SignUpFragment_default extends Fragment implements View.OnClickList
         switch (v.getId()) {
             case R.id.signUp_fragment_default_btnNext:
                 mViewModel.createUser(getContext());
-                if (true) {
+                if (false) {
                     getActivity().getSupportFragmentManager().beginTransaction()
                             .addToBackStack(null)
                             .setCustomAnimations(R.anim.slide_right_in, R.anim.slide_left_out, R.anim.slide_left_in, R.anim.slide_right_out)
@@ -185,7 +185,7 @@ public class SignUpFragment_default extends Fragment implements View.OnClickList
         return true;
     }
 
-    public void checkButtonAble() {
+    void checkButtonAble() {
         if (!mViewModel.stId.isEmpty() && !mViewModel.stPw.isEmpty() && !mViewModel.stPwCheck.isEmpty() && mViewModel.isMatched) {
             btnNext.setEnabled(true);
             btnNext.setBackground(getResources().getDrawable(R.drawable.button_ripple_enable));
