@@ -18,7 +18,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/temp_imageview" />
+            app:srcCompat="@drawable/view_image_background" />
 
         <EditText
             android:id="@+id/user_info_fragment_modify_employee_etName"

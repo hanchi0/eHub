@@ -16,7 +16,7 @@
             android:id="@+id/signUp_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/appbar_border"
+            android:background="@drawable/view_appbar_border"
             >
 
             <TextView

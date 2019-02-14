@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.jaemion.eHub.R;
 import com.jaemion.eHub.main.MainActivity;
+import com.jaemion.eHub.signin.SignInActivity;
 import com.jaemion.eHub.signup.SignUpActivity;
 
 import java.util.regex.Pattern;
@@ -24,34 +25,36 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class SignInFragment_SignIn extends Fragment implements View.OnClickListener{
+public class SignInFragment_SignIn extends Fragment implements View.OnClickListener {
     Button btnSignIn;
     CheckBox checkBox;
-    TextView tvSignUp, tvCheckBox, tvFindPw;
+    TextView tvSignUp, tvFindPw;
     EditText etId, etPw;
-    String stId, stPw, pwPattern, pwPattern2;
+    String stId, stPw;
 
     public SignInFragment_SignIn() {
         super();
     }
 
+    public static SignInFragment_SignIn newInstance() {
+        return new SignInFragment_SignIn();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.sign_in_fragment_sign_in,container,false);
+        View view = inflater.inflate(R.layout.sign_in_fragment_sign_in, container, false);
 
-        btnSignIn = view.findViewById(R.id.signIn_btnSign);
-        tvCheckBox = view.findViewById(R.id.signIn_tvCheckBox);
-        tvFindPw = view.findViewById(R.id.signIn_tvFindPw);
-        tvSignUp = view.findViewById(R.id.signIn_tvSignUp);
-        checkBox = view.findViewById(R.id.signIn_checkBox);
+        btnSignIn = view.findViewById(R.id.signIn_fragment_signIn_btnSign);
+        tvFindPw = view.findViewById(R.id.signIn_fragment_signIn_tvFindPw);
+        tvSignUp = view.findViewById(R.id.signIn_fragment_signIn_tvSignUp);
+        checkBox = view.findViewById(R.id.signIn_fragment_signIn_checkBox);
 
-        etId = view.findViewById(R.id.signIn_etId);
-        etPw = view.findViewById(R.id.signIn_etPassword);
+        etId = view.findViewById(R.id.signIn_fragment_signIn_etId);
+        etPw = view.findViewById(R.id.signIn_fragment_signIn_etPw);
 
         stId = stPw = "";
-        pwPattern = "^(?=.*\\d)(?=.*[~`!@#$%\\^&*()-])(?=.*[a-z])(?=.*[A-Z]).{7,15}$";
-        pwPattern2 = "(.)\\1\\1\\1";
+
 
         etId.addTextChangedListener(new TextWatcher() {
             @Override
@@ -67,9 +70,6 @@ public class SignInFragment_SignIn extends Fragment implements View.OnClickListe
             @Override
             public void afterTextChanged(Editable s) {
                 stId = s.toString();
-                if(Pattern.matches(getString(R.string.id_pattern),stId)){
-                    Log.d("asdf","match");
-                }
                 checkButtonAble();
             }
         });
@@ -88,8 +88,6 @@ public class SignInFragment_SignIn extends Fragment implements View.OnClickListe
             @Override
             public void afterTextChanged(Editable s) {
                 stPw = s.toString();
-                if(Pattern.matches(pwPattern,stPw))
-                    Log.d("asdf","match");
                 checkButtonAble();
             }
         });
@@ -97,7 +95,6 @@ public class SignInFragment_SignIn extends Fragment implements View.OnClickListe
         btnSignIn.setOnClickListener(this);
         btnSignIn.setEnabled(false);
         tvSignUp.setOnClickListener(this);
-        tvCheckBox.setOnClickListener(this);
         tvFindPw.setOnClickListener(this);
 
         return view;
@@ -108,38 +105,46 @@ public class SignInFragment_SignIn extends Fragment implements View.OnClickListe
         super.onActivityCreated(savedInstanceState);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((SignInActivity) getActivity()).getSupportActionBar().hide();
+    }
 
     @Override
     public void onClick(View v) {
         Intent intent;
         switch (v.getId()) {
-            case R.id.signIn_btnSign:
+            case R.id.signIn_fragment_signIn_btnSign:
                 intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
                 getActivity().finish();
 
                 break;
 
-            case R.id.signIn_tvSignUp:
+            case R.id.signIn_fragment_signIn_tvSignUp:
                 intent = new Intent(getActivity(), SignUpActivity.class);
                 startActivity(intent);
                 getActivity().finish();
                 break;
 
-            case R.id.signIn_tvFindPw:
-                Toast.makeText(getActivity(), "아직 못찾아", Toast.LENGTH_SHORT).show();
+            case R.id.signIn_fragment_signIn_tvFindPw:
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .addToBackStack(null)
+                        .setCustomAnimations(R.anim.slide_right_in, R.anim.slide_left_out, R.anim.slide_left_in, R.anim.slide_right_out)
+                        .replace(R.id.signIn_container, SignInFragment_Find.newInstance())
+                        .commit();
                 break;
         }
 
     }
 
     void checkButtonAble() {
-        if (!stId.isEmpty() && !stPw.isEmpty()){
+        if (!stId.isEmpty() && !stPw.isEmpty()) {
             btnSignIn.setEnabled(true);
             btnSignIn.setBackground(getActivity().getDrawable(R.drawable.button_ripple_enable));
             btnSignIn.setTextColor(getResources().getColor(R.color.button_text_enable));
-        }
-        else{
+        } else {
             btnSignIn.setEnabled(false);
             btnSignIn.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
             btnSignIn.setTextColor(getResources().getColor(R.color.button_text_enable));

@@ -15,7 +15,7 @@
             android:id="@+id/user_info_activity_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/appbar_border">
+            android:background="@drawable/view_appbar_border">
 
             <TextView
                 android:id="@+id/user_info_activity_toolbar_title"

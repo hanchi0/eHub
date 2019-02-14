@@ -87,6 +87,6 @@ public class MainFragment_List extends Fragment {
     public void onResume() {
         super.onResume();
         ((MainActivity)getActivity()).getToolbarTitle().setVisibility(View.VISIBLE);
-        ((MainActivity)getActivity()).getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.appbar_border));
+        ((MainActivity)getActivity()).getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.view_appbar_border));
     }
 }

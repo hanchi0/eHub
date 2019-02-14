@@ -1,11 +1,14 @@
 package com.jaemion.eHub.signup.ui;
 
 import androidx.lifecycle.ViewModelProviders;
+
 import android.content.Context;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -19,6 +22,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.jaemion.eHub.R;
 import com.jaemion.eHub.signup.SignUpActivity;
 
@@ -27,6 +31,8 @@ public class SignUpFragment_default extends Fragment implements View.OnClickList
     Button btnNext;
     EditText etId, etPw, etPwCheck;
     InputMethodManager inputMethodManager;
+    TextInputLayout inputLayout_id, inputLayout_pw, inputLayout_pwCheck;
+    String pwPattern, pwPattern2;
 
     public static SignUpFragment_default newInstance() {
         return new SignUpFragment_default();
@@ -41,6 +47,13 @@ public class SignUpFragment_default extends Fragment implements View.OnClickList
         etId = view.findViewById(R.id.signUp_fragment_default_etID);
         etPw = view.findViewById(R.id.signUp_fragment_default_etPW);
         etPwCheck = view.findViewById(R.id.signUp_fragment_default_etPWCheck);
+        inputLayout_id = view.findViewById(R.id.signUp_fragment_default_inputLayout_id);
+        inputLayout_pw = view.findViewById(R.id.signUp_fragment_default_inputLayout_pw);
+        inputLayout_pwCheck = view.findViewById(R.id.signUp_fragment_default_inputLayout_pwCheck);
+
+        pwPattern = "^(?=.*\\d)(?=.*[~`!@#$%\\^&*()-])(?=.*[a-z])(?=.*[A-Z]).{7,15}$";
+        pwPattern2 = "(.)\\1\\1\\1";
+
         etId.setOnEditorActionListener(this);
         etPw.setOnEditorActionListener(this);
         etPwCheck.setOnEditorActionListener(this);
@@ -101,6 +114,13 @@ public class SignUpFragment_default extends Fragment implements View.OnClickList
                 checkButtonAble();
             }
         });
+
+        inputLayout_id.setCounterEnabled(true);
+        inputLayout_id.setCounterMaxLength(15);
+        inputLayout_pw.setCounterEnabled(true);
+        inputLayout_pw.setCounterMaxLength(15);
+        inputLayout_pwCheck.setCounterEnabled(true);
+        inputLayout_pwCheck.setCounterMaxLength(15);
 
         btnNext.setOnClickListener(this);
         btnNext.setEnabled(false);

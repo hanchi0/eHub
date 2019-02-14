@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jaemion.eHub.R;
-import com.jaemion.eHub.application.ApplicationActivity;
 import com.jaemion.eHub.customview.CustomViewPager;
 import com.jaemion.eHub.main.MainActivity;
 import com.jaemion.eHub.order.OrderActivity;
@@ -117,7 +116,7 @@ public class MainFragment_Main extends Fragment implements  ViewPager.OnPageChan
     public void onResume() {
         super.onResume();
         ((MainActivity)getActivity()).getToolbarTitle().setVisibility(View.INVISIBLE);
-        ((MainActivity)getActivity()).getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.appbar_fill_white));
+        ((MainActivity)getActivity()).getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.view_appbar_borderless));
     }
 
     @Override
