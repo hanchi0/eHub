@@ -1,5 +1,6 @@
 package com.jaemion.eHub.signup.ui;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -20,15 +21,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.SignUpFragmentDetailEmployeeBinding;
 import com.jaemion.eHub.main.MainActivity;
 import com.jaemion.eHub.signup.SignUpActivity;
 
 public class SignUpFragment_detail_Employee extends Fragment implements View.OnClickListener {
     private SignUpViewModel mViewModel;
-    Button btnSkip, btnSignUp;
-    ImageView ivProfile;
-    EditText etPhone, etBnum, etNick, etCarType, etRadius, etLocation;
-    CheckBox chIsSafe;
+    SignUpFragmentDetailEmployeeBinding binding;
 
     public static SignUpFragment_detail_Employee newInstance() {
         return new SignUpFragment_detail_Employee();
@@ -38,22 +37,13 @@ public class SignUpFragment_detail_Employee extends Fragment implements View.OnC
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.sign_up_fragment_detail_employee, container, false);
-        btnSignUp = view.findViewById(R.id.signUp_fragment_detail_employee_btnSignUp);
-        btnSkip = view.findViewById(R.id.signUp_fragment_detail_employee_btnSkip);
-        ivProfile = view.findViewById(R.id.signUp_fragment_detail_employee_ivProfile);
-        etPhone = view.findViewById(R.id.signUp_fragment_detail_employee_etPhone);
-        etBnum = view.findViewById(R.id.signUp_fragment_detail_employee_etBnum);
-        etNick = view.findViewById(R.id.signUp_fragment_detail_employee_etNick);
-        etCarType = view.findViewById(R.id.signUp_fragment_detail_employee_etCarType);
-        etRadius = view.findViewById(R.id.signUp_fragment_detail_employee_etRadius);
-        etLocation = view.findViewById(R.id.signUp_fragment_detail_employee_etLocation);
-        chIsSafe = view.findViewById(R.id.signUp_fragment_detail_employee_chIsSafe);
+        binding = DataBindingUtil.inflate(inflater, R.layout.sign_up_fragment_detail_employee, container, false);
+
         addTextChangeListener();
-        btnSignUp.setOnClickListener(this);
-        btnSkip.setOnClickListener(this);
-        btnSignUp.setEnabled(false);
-        return view;
+        binding.signUpFragmentDetailEmployeeBtnSignUp.setOnClickListener(this);
+        binding.signUpFragmentDetailEmployeeBtnSkip.setOnClickListener(this);
+        binding.signUpFragmentDetailEmployeeBtnSignUp.setEnabled(false);
+        return binding.getRoot();
     }
 
     @Override
@@ -75,7 +65,7 @@ public class SignUpFragment_detail_Employee extends Fragment implements View.OnC
         Intent intent = null;
         switch (v.getId()) {
             case R.id.signUp_fragment_detail_employee_btnSignUp:
-                mViewModel.isSafe = chIsSafe.isChecked();
+                mViewModel.isSafe = binding.signUpFragmentDetailEmployeeChIsSafe.isChecked();
                 mViewModel.addAdditionalData(getContext());
                 intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
@@ -93,19 +83,19 @@ public class SignUpFragment_detail_Employee extends Fragment implements View.OnC
     void checkButtonAble() {
         if (!mViewModel.stPhone.isEmpty() && !mViewModel.stBnum.isEmpty() && !mViewModel.stNick.isEmpty() && !mViewModel.stCarType.isEmpty()
                 && !mViewModel.stRadius.isEmpty() && !mViewModel.stLocation.isEmpty()){
-            btnSignUp.setEnabled(true);
-            btnSignUp.setBackground(getResources().getDrawable(R.drawable.button_ripple_enable));
-            btnSignUp.setTextColor(getResources().getColor(R.color.button_text_enable));
+            binding.signUpFragmentDetailEmployeeBtnSignUp.setEnabled(true);
+            binding.signUpFragmentDetailEmployeeBtnSignUp.setBackground(getResources().getDrawable(R.drawable.button_ripple_enable));
+            binding.signUpFragmentDetailEmployeeBtnSignUp.setTextColor(getResources().getColor(R.color.button_text_enable));
         }
         else{
-            btnSignUp.setEnabled(false);
-            btnSignUp.setBackgroundColor(getResources().getColor(R.color.button_text_disable));
-            btnSignUp.setTextColor(getResources().getColor(R.color.button_text_disable));
+            binding.signUpFragmentDetailEmployeeBtnSignUp.setEnabled(false);
+            binding.signUpFragmentDetailEmployeeBtnSignUp.setBackgroundColor(getResources().getColor(R.color.button_text_disable));
+            binding.signUpFragmentDetailEmployeeBtnSignUp.setTextColor(getResources().getColor(R.color.button_text_disable));
         }
     }
 
     void addTextChangeListener(){
-        etPhone.addTextChangedListener(new TextWatcher() {
+        binding.signUpFragmentDetailEmployeeEtPhone.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -123,7 +113,7 @@ public class SignUpFragment_detail_Employee extends Fragment implements View.OnC
             }
         });
 
-        etBnum.addTextChangedListener(new TextWatcher() {
+        binding.signUpFragmentDetailEmployeeEtBnum.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -141,7 +131,7 @@ public class SignUpFragment_detail_Employee extends Fragment implements View.OnC
             }
         });
 
-        etNick.addTextChangedListener(new TextWatcher() {
+        binding.signUpFragmentDetailEmployeeEtNick.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -159,7 +149,7 @@ public class SignUpFragment_detail_Employee extends Fragment implements View.OnC
             }
         });
 
-        etCarType.addTextChangedListener(new TextWatcher() {
+        binding.signUpFragmentDetailEmployeeEtCarType.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -177,7 +167,7 @@ public class SignUpFragment_detail_Employee extends Fragment implements View.OnC
             }
         });
 
-        etRadius.addTextChangedListener(new TextWatcher() {
+        binding.signUpFragmentDetailEmployeeEtRadius.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -195,7 +185,7 @@ public class SignUpFragment_detail_Employee extends Fragment implements View.OnC
             }
         });
 
-        etLocation.addTextChangedListener(new TextWatcher() {
+        binding.signUpFragmentDetailEmployeeEtLocation.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 

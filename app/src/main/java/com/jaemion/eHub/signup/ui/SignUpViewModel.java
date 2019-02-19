@@ -9,6 +9,7 @@ public class SignUpViewModel extends ViewModel {
     // TODO: Implement the ViewModel
 
     String stId, stPw, stPwCheck,stPhone, stBnum, stNick, stCarType, stRadius, stLocation;
+    int userType;
     Image iProfile;
 
     Boolean isMatched, isSafe;

@@ -30,6 +30,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.OrderFragmentEstimateBinding;
 import com.jaemion.eHub.order.OrderActivity;
 
 import java.io.IOException;
@@ -40,45 +41,29 @@ import java.util.Calendar;
 public class OrderFragment_Estimate extends Fragment implements View.OnClickListener {
 
     private OrderViewModel mViewModel;
-    TextView tvDuration, tvCurrentNumOfCar;
-    EditText etOrderName, etLocation, etPay;
-    Spinner spinner;
-    ImageView ivInfo1, ivInfo2, ivInfo3, ivCalendar;
-    Button btnOrder, btnMinus, btnPlus;
-    DatePickerDialog.OnDateSetListener startListener, finishListener;
-    String startDate, finishDate;
-    int numOfCar = 0;
 
     public static OrderFragment_Estimate newInstance() {
         return new OrderFragment_Estimate();
     }
+
+    OrderFragmentEstimateBinding binding;
+    DatePickerDialog.OnDateSetListener startListener, finishListener;
+    String startDate, finishDate;
+    int numOfCar = 0;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.order_fragment_estimate, container, false);
-        etOrderName = view.findViewById(R.id.order_fragment_estimate_etOrderName);
-        etLocation = view.findViewById(R.id.order_fragment_estimate_etLocation);
-        spinner = view.findViewById(R.id.order_fragment_estimate_spinnerOption);
-        etPay = view.findViewById(R.id.order_fragment_estimate_etPay);
-        tvDuration = view.findViewById(R.id.order_fragment_estimate_tvOrderDurationSelect);
-        tvCurrentNumOfCar = view.findViewById(R.id.order_fragment_estimate_tvCurrentNumOfCar);
-        ivCalendar = view.findViewById(R.id.order_fragment_estimate_ivCalendar);
-        ivInfo1 = view.findViewById(R.id.order_fragment_estimate_ivInfo1);
-        ivInfo2 = view.findViewById(R.id.order_fragment_estimate_ivInfo2);
-        ivInfo3 = view.findViewById(R.id.order_fragment_estimate_ivInfo3);
-        btnOrder = view.findViewById(R.id.order_fragment_estimate_btnOrder);
-        btnMinus = view.findViewById(R.id.order_fragment_estimate_btnMinus);
-        btnPlus = view.findViewById(R.id.order_fragment_estimate_btnPlus);
 
-        ivCalendar.setOnClickListener(this);
-        ivInfo1.setOnClickListener(this);
-        ivInfo2.setOnClickListener(this);
-        ivInfo3.setOnClickListener(this);
-        btnOrder.setOnClickListener(this);
-        btnMinus.setOnClickListener(this);
-        btnPlus.setOnClickListener(this);
+        binding.orderFragmentEstimateIvCalendar.setOnClickListener(this);
+        binding.orderFragmentEstimateIvInfo1.setOnClickListener(this);
+        binding.orderFragmentEstimateIvInfo2.setOnClickListener(this);
+        binding.orderFragmentEstimateIvInfo3.setOnClickListener(this);
+        binding.orderFragmentEstimateBtnOrder.setOnClickListener(this);
+        binding.orderFragmentEstimateBtnMinus.setOnClickListener(this);
+        binding.orderFragmentEstimateBtnPlus.setOnClickListener(this);
 
         startListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -88,7 +73,7 @@ public class OrderFragment_Estimate extends Fragment implements View.OnClickList
                 c.set(Calendar.MONTH, month);
                 c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 String currentDateString = new SimpleDateFormat("yyyy년 MMM dd일 (E)").format(c.getTime());
-                tvDuration.setText(currentDateString + "- yyyy-mm-dd");
+                binding.orderFragmentEstimateTvOrderDurationSelect.setText(currentDateString + "- yyyy-mm-dd");
                 startDate = currentDateString;
 
                 DatePickerDialog pickerDialog = new DatePickerDialog(getActivity(), finishListener, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
@@ -110,16 +95,16 @@ public class OrderFragment_Estimate extends Fragment implements View.OnClickList
                 c.set(Calendar.MONTH, month);
                 c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 String currentDateString = new SimpleDateFormat("yyyy년 MMM dd일 (E)").format(c.getTime());
-                tvDuration.setText(startDate + " - " + currentDateString);
+                binding.orderFragmentEstimateTvOrderDurationSelect.setText(startDate + " - " + currentDateString);
                 finishDate = currentDateString;
             }
         };
 
-        spinner.setPrompt("옵션을 선택해주세요");
+        binding.orderFragmentEstimateSpinnerOption.setPrompt("옵션을 선택해주세요");
         ArrayAdapter<CharSequence> aa = ArrayAdapter.createFromResource(getActivity(), R.array.option, android.R.layout.simple_spinner_item);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(aa);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        binding.orderFragmentEstimateSpinnerOption.setAdapter(aa);
+        binding.orderFragmentEstimateSpinnerOption.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("asdf", parent.getItemAtPosition(position).toString());
@@ -191,20 +176,20 @@ public class OrderFragment_Estimate extends Fragment implements View.OnClickList
         Log.d("asdf", bitmap.getHeight() + "");
         Log.d("asdf", bitmap.getWidth() + "");
         Bitmap temp = Bitmap.createScaledBitmap(bitmap, 1024, (int) (1024 * ratio), true);
-        ivInfo1.setImageBitmap(temp);
+        binding.orderFragmentEstimateIvInfo1.setImageBitmap(temp);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.order_fragment_estimate_btnOrder:
-                etOrderName.clearFocus();
-                etLocation.clearFocus();
-                etPay.clearFocus();
+                binding.orderFragmentEstimateEtOrderName.clearFocus();
+                binding.orderFragmentEstimateEtLocation.clearFocus();
+                binding.orderFragmentEstimateEtPay.clearFocus();
                 InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputMethodManager.hideSoftInputFromWindow(etOrderName.getWindowToken(), 0);
-                inputMethodManager.hideSoftInputFromWindow(etLocation.getWindowToken(), 0);
-                inputMethodManager.hideSoftInputFromWindow(etPay.getWindowToken(), 0);
+                inputMethodManager.hideSoftInputFromWindow(binding.orderFragmentEstimateEtOrderName.getWindowToken(), 0);
+                inputMethodManager.hideSoftInputFromWindow(binding.orderFragmentEstimateEtLocation.getWindowToken(), 0);
+                inputMethodManager.hideSoftInputFromWindow(binding.orderFragmentEstimateEtPay.getWindowToken(), 0);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .addToBackStack(null)
                         .setCustomAnimations(R.anim.slide_right_in, R.anim.slide_left_out, R.anim.slide_left_in, R.anim.slide_right_out)
@@ -238,12 +223,12 @@ public class OrderFragment_Estimate extends Fragment implements View.OnClickList
                 if (numOfCar == 0)
                     break;
                 numOfCar -= 1;
-                tvCurrentNumOfCar.setText(String.valueOf(numOfCar));
+                binding.orderFragmentEstimateTvCurrentNumOfCar.setText(String.valueOf(numOfCar));
                 break;
 
             case R.id.order_fragment_estimate_btnPlus:
                 numOfCar += 1;
-                tvCurrentNumOfCar.setText(String.valueOf(numOfCar));
+                binding.orderFragmentEstimateTvCurrentNumOfCar.setText(String.valueOf(numOfCar));
                 break;
         }
     }

@@ -1,33 +1,34 @@
 package com.jaemion.eHub.order;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
 
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.OrderActivityBinding;
 import com.jaemion.eHub.order.ui.OrderFragment_Estimate;
 
-public class OrderActivity extends AppCompatActivity{
-    TextView toolbarTitle;
-    Toolbar toolbar;
+public class OrderActivity extends AppCompatActivity {
+    OrderActivityBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.order_activity);
+        binding = DataBindingUtil.setContentView(this, R.layout.order_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.order_container, OrderFragment_Estimate.newInstance())
                     .commitNow();
         }
 
-        toolbar = (Toolbar) findViewById(R.id.order_toolbar);
-        toolbarTitle = findViewById(R.id.order_toolbar_title);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.orderToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_black);
@@ -58,8 +59,8 @@ public class OrderActivity extends AppCompatActivity{
     }
 
     public void setToolbar(String title) {
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.orderToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbarTitle.setText(title);
+        binding.orderToolbarTitle.setText(title);
     }
 }

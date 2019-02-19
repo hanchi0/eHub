@@ -1,7 +1,7 @@
 package com.jaemion.eHub.network;
 
 
-import android.service.autofill.UserData;
+import com.jaemion.eHub.network.model.UserData;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -12,12 +12,12 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface NetworkInterface {
-    @POST("api/users/sign-in")
+    @POST("api/User")
     @FormUrlEncoded
-    Call<UserData> signIn(@Field("user_id")String user_id, @Field("password")String user_pw);
+    Call<UserData> createUser(@Field("id")String user_id, @Field("pw")String user_pw, @Field("type")int user_type);
 
     public static final Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.100.34:3000/")
+            .baseUrl("http://13.209.145.113:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 }

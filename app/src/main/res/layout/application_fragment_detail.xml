@@ -1,302 +1,305 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout>
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="240dp"
-        app:elevation="0dp">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/background_light"
+                app:contentScrim="@android:color/darker_gray"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:id="@+id/application_fragment_detail_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/view_image_background"
+                    app:layout_collapseMode="pin" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/application_fragment_detail_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/order_detail_nestedScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/background_light"
-            app:contentScrim="@android:color/darker_gray"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <ImageView
-                android:id="@+id/application_fragment_detail_iv"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/view_image_background"
-                app:layout_collapseMode="pin" />
+                android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/application_fragment_detail_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin" />
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="포크레인구합니다."
+                    android:textColor="@android:color/black"
+                    android:textSize="19sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="14.5dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#dde2e3"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvTitle" />
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/order_detail_nestedScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/background_light"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="27dp"
+                    android:text="현장 정보"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvTitle" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="현장 주소"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvInfo" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvLocationData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:text="서울특별시 00구 00로 00길 00 000"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvLocation"
+                    app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvLocation" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="8dp"
+                    android:text="작업 일정"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvLocation" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvDurationData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:text="2019.01.16(수) - 2019.01.20(일)"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvDuration"
+                    app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvDuration" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvDurationDataSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4일"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="@id/application_fragment_detail_tvDurationData"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvDurationData" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvPay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="작업 일당"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvDuration" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvPayData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:text="30만원"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvPay"
+                    app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvPay" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="14.5dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#dde2e3"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvPay" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvEquipmentInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="24dp"
+                    android:text="필요 장비 정보"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvPay" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="차량 종류"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvEquipmentInfo" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvTypeData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="포크레인"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvType"
+                    app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvType" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvOption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="8dp"
+                    android:text="차량 옵션"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvType" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvOptionData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="옵션 추출 값 표기"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvOption"
+                    app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvOption" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvNumOfCar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="8dp"
+                    android:text="차량수"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvOption" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvNumOfCarData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3대"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="@id/application_fragment_detail_tvOptionData"
+                    app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvNumOfCar" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:background="#dde2e3"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvNumOfCar" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvTotalPay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="22dp"
+                    android:text="총 금액"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvNumOfCar" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvTotalPayContents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="작업 일당 x 총 일당"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/application_fragment_detail_tvTotalPay"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvTotalPay" />
+
+                <TextView
+                    android:id="@+id/application_fragment_detail_tvTotalPayData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="120만원"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp"
+                    app:layout_constraintRight_toRightOf="@id/application_fragment_detail_tvTotalPayContents"
+                    app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvTotalPayContents" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <Button
+            android:id="@+id/application_fragment_detail_btnApply"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="15dp"
-                android:text="포크레인구합니다."
-                android:textColor="@android:color/black"
-                android:textSize="19sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="14.5dp"
-                android:layout_marginRight="20dp"
-                android:background="#dde2e3"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvTitle" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="27dp"
-                android:text="현장 정보"
-                android:textColor="@android:color/black"
-                android:textSize="15sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvTitle" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:text="현장 주소"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvInfo" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvLocationData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:text="서울특별시 00구 00로 00길 00 000"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvLocation"
-                app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvLocation" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvDuration"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="8dp"
-                android:text="작업 일정"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvLocation" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvDurationData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:text="2019.01.16(수) - 2019.01.20(일)"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvDuration"
-                app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvDuration" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvDurationDataSub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4일"
-                android:textColor="@android:color/black"
-                android:textSize="15sp"
-                app:layout_constraintLeft_toLeftOf="@id/application_fragment_detail_tvDurationData"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvDurationData" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvPay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
-                android:text="작업 일당"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvDuration" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvPayData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:text="30만원"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvPay"
-                app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvPay" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="14.5dp"
-                android:layout_marginRight="20dp"
-                android:background="#dde2e3"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvPay" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvEquipmentInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="24dp"
-                android:text="필요 장비 정보"
-                android:textColor="@android:color/black"
-                android:textSize="15sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvPay" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvType"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:text="차량 종류"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvEquipmentInfo" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvTypeData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="포크레인"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvType"
-                app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvType" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvOption"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="8dp"
-                android:text="차량 옵션"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvType" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvOptionData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="옵션 추출 값 표기"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toRightOf="@id/application_fragment_detail_tvOption"
-                app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvOption" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvNumOfCar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="8dp"
-                android:text="차량수"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvOption" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvNumOfCarData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3대"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"
-                app:layout_constraintLeft_toLeftOf="@id/application_fragment_detail_tvOptionData"
-                app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvNumOfCar" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
-                android:background="#dde2e3"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvNumOfCar" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvTotalPay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="22dp"
-                android:text="총 금액"
-                android:textColor="@android:color/black"
-                android:textSize="15sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvNumOfCar" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvTotalPayContents"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:text="작업 일당 x 총 일당"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@id/application_fragment_detail_tvTotalPay"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/application_fragment_detail_tvTotalPay" />
-
-            <TextView
-                android:id="@+id/application_fragment_detail_tvTotalPayData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="120만원"
-                android:textColor="@android:color/black"
-                android:textSize="17sp"
-                app:layout_constraintRight_toRightOf="@id/application_fragment_detail_tvTotalPayContents"
-                app:layout_constraintTop_toBottomOf="@id/application_fragment_detail_tvTotalPayContents" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
-
-    <Button
-        android:id="@+id/application_fragment_detail_btnApply"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom"
-        android:background="@color/button_background_disable"
-        android:text="수주하기"
-        android:textColor="@color/button_text_disable"
-        android:textSize="18sp" />
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:background="@color/button_background_disable"
+            android:text="수주하기"
+            android:textColor="@color/button_text_disable"
+            android:textSize="18sp" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

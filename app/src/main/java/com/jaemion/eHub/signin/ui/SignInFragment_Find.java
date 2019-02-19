@@ -13,12 +13,14 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.SignInFragmentFindBinding;
 import com.jaemion.eHub.signin.SignInActivity;
 
 import org.w3c.dom.Text;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 public class SignInFragment_Find extends Fragment implements View.OnClickListener {
@@ -26,9 +28,7 @@ public class SignInFragment_Find extends Fragment implements View.OnClickListene
         super();
     }
 
-    EditText etEmail;
-    TextInputLayout inputLayout_email;
-    Button btnSend;
+    SignInFragmentFindBinding binding;
 
     public static SignInFragment_Find newInstance() {
         return new SignInFragment_Find();
@@ -37,15 +37,12 @@ public class SignInFragment_Find extends Fragment implements View.OnClickListene
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.sign_in_fragment_find, container, false);
-        etEmail = view.findViewById(R.id.signIn_fragment_find_etEmail);
-        inputLayout_email = view.findViewById(R.id.signIn_fragment_find_inputLayout_email);
-        btnSend = view.findViewById(R.id.signIn_fragment_find_btnSend);
-        btnSend.setOnClickListener(this);
-        btnSend.setEnabled(false);
-        inputLayout_email.setErrorEnabled(true);
+        binding = DataBindingUtil.inflate(inflater, R.layout.sign_in_fragment_find, container, false);
 
-        etEmail.addTextChangedListener(new TextWatcher() {
+        binding.signInFragmentFindBtnSend.setOnClickListener(this);
+        binding.signInFragmentFindBtnSend.setEnabled(false);
+        binding.signInFragmentFindInputLayoutEmail.setErrorEnabled(true);
+        binding.signInFragmentFindEtEmail.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -59,19 +56,19 @@ public class SignInFragment_Find extends Fragment implements View.OnClickListene
             @Override
             public void afterTextChanged(Editable s) {
                 if (Patterns.EMAIL_ADDRESS.matcher(s.toString()).matches()) {
-                    inputLayout_email.setError(null);
-                    btnSend.setEnabled(true);
-                    btnSend.setBackground(getResources().getDrawable(R.drawable.button_ripple_enable));
-                    btnSend.setTextColor(getResources().getColor(R.color.button_text_enable));
+                    binding.signInFragmentFindInputLayoutEmail.setError(null);
+                    binding.signInFragmentFindBtnSend.setEnabled(true);
+                    binding.signInFragmentFindBtnSend.setBackground(getResources().getDrawable(R.drawable.button_ripple_enable));
+                    binding.signInFragmentFindBtnSend.setTextColor(getResources().getColor(R.color.button_text_enable));
                 } else {
-                    inputLayout_email.setError("이메일 형식이 맞지 않습니다.");
-                    btnSend.setEnabled(false);
-                    btnSend.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
-                    btnSend.setTextColor(getResources().getColor(R.color.button_text_disable));
+                    binding.signInFragmentFindInputLayoutEmail.setError("이메일 형식이 맞지 않습니다.");
+                    binding.signInFragmentFindBtnSend.setEnabled(false);
+                    binding.signInFragmentFindBtnSend.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+                    binding.signInFragmentFindBtnSend.setTextColor(getResources().getColor(R.color.button_text_disable));
                 }
             }
         });
-        return view;
+        return binding.getRoot();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.jaemion.eHub.order.ui;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -17,40 +18,35 @@ import android.widget.CheckBox;
 import com.jaemion.eHub.R;
 import com.jaemion.eHub.application.ApplicationActivity;
 import com.jaemion.eHub.customview.CustomCanvas;
+import com.jaemion.eHub.databinding.OrderFragmentContractBinding;
 import com.jaemion.eHub.order.OrderActivity;
 
 public class OrderFragment_Contract extends Fragment implements View.OnClickListener {
     private OrderViewModel mViewModel;
-    Button btnContract;
-    CheckBox cb1, cb2, cb3;
-    CustomCanvas customCanvas;
 
     public static OrderFragment_Contract newInstance() {
         return new OrderFragment_Contract();
     }
 
+    OrderFragmentContractBinding binding;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.order_fragment_contract, container, false);
-        btnContract = view.findViewById(R.id.order_fragment_contract_btnContract);
-        cb1 = view.findViewById(R.id.order_fragment_contract_cb1);
-        cb2 = view.findViewById(R.id.order_fragment_contract_cb2);
-        cb3 = view.findViewById(R.id.order_fragment_contract_cb3);
-        customCanvas = view.findViewById(R.id.order_fragment_contract_canvas);
-        customCanvas.setTouchListener(new CustomCanvas.TouchListener() {
+        binding = DataBindingUtil.inflate(inflater, R.layout.order_fragment_contract, container, false);
+        binding.orderFragmentContractCanvas.setTouchListener(new CustomCanvas.TouchListener() {
             @Override
             public void onTouch() {
                 checkButtonAble();
             }
         });
-        cb1.setOnClickListener(this);
-        cb2.setOnClickListener(this);
-        cb3.setOnClickListener(this);
-        btnContract.setOnClickListener(this);
-        btnContract.setEnabled(false);
-        return view;
+        binding.orderFragmentContractCb1.setOnClickListener(this);
+        binding.orderFragmentContractCb2.setOnClickListener(this);
+        binding.orderFragmentContractCb3.setOnClickListener(this);
+        binding.orderFragmentContractBtnContract.setOnClickListener(this);
+        binding.orderFragmentContractBtnContract.setEnabled(false);
+        return binding.getRoot();
     }
 
     @Override
@@ -85,14 +81,14 @@ public class OrderFragment_Contract extends Fragment implements View.OnClickList
     }
 
     void checkButtonAble() {
-        if (cb1.isChecked() && cb2.isChecked() && cb3.isChecked() && customCanvas.getIsTouched()) {
-            btnContract.setEnabled(true);
-            btnContract.setBackground(getResources().getDrawable(R.drawable.button_ripple_enable));
-            btnContract.setTextColor(getResources().getColor(R.color.button_text_enable));
+        if (binding.orderFragmentContractCb1.isChecked() && binding.orderFragmentContractCb2.isChecked() && binding.orderFragmentContractCb3.isChecked() && binding.orderFragmentContractCanvas.getIsTouched()) {
+            binding.orderFragmentContractBtnContract.setEnabled(true);
+            binding.orderFragmentContractBtnContract.setBackground(getResources().getDrawable(R.drawable.button_ripple_enable));
+            binding.orderFragmentContractBtnContract.setTextColor(getResources().getColor(R.color.button_text_enable));
         } else {
-            btnContract.setEnabled(false);
-            btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
-            btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
+            binding.orderFragmentContractBtnContract.setEnabled(false);
+            binding.orderFragmentContractBtnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+            binding.orderFragmentContractBtnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
         }
     }
 }

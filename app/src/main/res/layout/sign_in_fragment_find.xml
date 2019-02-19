@@ -1,48 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="29.5dp"
-        android:text="임시 비밀번호를 발급받으실\n이메일 주소를 입력해주세요."
-        android:textColor="@android:color/black"
-        android:textSize="17sp"
-        app:layout_constraintLeft_toLeftOf="@id/signIn_fragment_find_inputLayout_email"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/signIn_fragment_find_inputLayout_email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="109.5dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/signIn_fragment_find_etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/view_edittext_border"
-            android:hint="이메일 주소 입력"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="15dp"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/signIn_fragment_find_btnSend"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/button_background_disable"
-        android:text="이메일 전송하기"
-        android:textColor="@color/button_text_disable"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29.5dp"
+            android:text="임시 비밀번호를 발급받으실\n이메일 주소를 입력해주세요."
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            app:layout_constraintLeft_toLeftOf="@id/signIn_fragment_find_inputLayout_email"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signIn_fragment_find_inputLayout_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="109.5dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/signIn_fragment_find_etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/view_edittext_border"
+                android:hint="이메일 주소 입력"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="15dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/signIn_fragment_find_btnSend"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/button_background_disable"
+            android:text="이메일 전송하기"
+            android:textColor="@color/button_text_disable"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

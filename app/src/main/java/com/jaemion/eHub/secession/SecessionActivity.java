@@ -1,36 +1,36 @@
 package com.jaemion.eHub.secession;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.SecessionActivityBinding;
 
 public class SecessionActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btnSecession;
-    CheckBox cbSecession;
-    Toolbar toolbar;
+    SecessionActivityBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.secession_activity);
-        toolbar = findViewById(R.id.secession_toolbar);
-        btnSecession = findViewById(R.id.secession_btnSecession);
-        cbSecession = findViewById(R.id.secession_cbSecession);
+        binding = DataBindingUtil.setContentView(this, R.layout.secession_activity);
 
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.secessionToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_black);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        btnSecession.setOnClickListener(this);
-        cbSecession.setOnClickListener(this);
-        btnSecession.setEnabled(false);
+        binding.secessionBtnSecession.setOnClickListener(this);
+        binding.secessionCbSecession.setOnClickListener(this);
+        binding.secessionBtnSecession.setEnabled(false);
     }
 
     @Override
@@ -50,14 +50,14 @@ public class SecessionActivity extends AppCompatActivity implements View.OnClick
                 finish();
                 break;
             case R.id.secession_cbSecession:
-                if (cbSecession.isChecked()) {
-                    btnSecession.setEnabled(true);
-                    btnSecession.setBackgroundColor(getResources().getColor(R.color.button_background_enable));
-                    btnSecession.setTextColor(getResources().getColor(R.color.button_text_enable));
+                if (binding.secessionCbSecession.isChecked()) {
+                    binding.secessionBtnSecession.setEnabled(true);
+                    binding.secessionBtnSecession.setBackgroundColor(getResources().getColor(R.color.button_background_enable));
+                    binding.secessionBtnSecession.setTextColor(getResources().getColor(R.color.button_text_enable));
                 } else {
-                    btnSecession.setEnabled(false);
-                    btnSecession.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
-                    btnSecession.setTextColor(getResources().getColor(R.color.button_text_disable));
+                    binding.secessionBtnSecession.setEnabled(false);
+                    binding.secessionBtnSecession.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+                    binding.secessionBtnSecession.setTextColor(getResources().getColor(R.color.button_text_disable));
                 }
                 break;
         }

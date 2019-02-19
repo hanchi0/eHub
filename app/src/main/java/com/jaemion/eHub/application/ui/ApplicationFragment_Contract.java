@@ -1,10 +1,14 @@
 package com.jaemion.eHub.application.ui;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
+
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +18,11 @@ import android.widget.CheckBox;
 import com.jaemion.eHub.R;
 import com.jaemion.eHub.application.ApplicationActivity;
 import com.jaemion.eHub.customview.CustomCanvas;
+import com.jaemion.eHub.databinding.ApplicationFragmentContractBinding;
 
 public class ApplicationFragment_Contract extends Fragment implements View.OnClickListener {
     private ApplicationViewModel mViewModel;
-    Button btnContract;
-    CheckBox cb1, cb2, cb3;
-    CustomCanvas customCanvas;
+    ApplicationFragmentContractBinding binding;
 
     public static ApplicationFragment_Contract newInstance() {
         return new ApplicationFragment_Contract();
@@ -32,34 +35,29 @@ public class ApplicationFragment_Contract extends Fragment implements View.OnCli
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.application_fragment_contract, container, false);
-        btnContract = view.findViewById(R.id.application_fragment_contract_btnContract);
-        cb1 = view.findViewById(R.id.application_fragment_contract_cb1);
-        cb2 = view.findViewById(R.id.application_fragment_contract_cb2);
-        cb3 = view.findViewById(R.id.application_fragment_contract_cb3);
-        customCanvas = view.findViewById(R.id.application_fragment_contract_canvas);
-        customCanvas.setTouchListener(new CustomCanvas.TouchListener() {
+        binding = DataBindingUtil.inflate(inflater, R.layout.application_fragment_contract, container, false);
+        binding.applicationFragmentContractCanvas.setTouchListener(new CustomCanvas.TouchListener() {
             @Override
             public void onTouch() {
-                if (cb1.isChecked() && cb2.isChecked() && cb3.isChecked() && customCanvas.getIsTouched()) {
-                    btnContract.setEnabled(true);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_enable));
-                    btnContract.setTextColor(getResources().getColor(R.color.button_text_enable));
+                if (binding.applicationFragmentContractCb1.isChecked() && binding.applicationFragmentContractCb2.isChecked() && binding.applicationFragmentContractCb3.isChecked() && binding.applicationFragmentContractCanvas.getIsTouched()) {
+                    binding.applicationFragmentContractBtnContract.setEnabled(true);
+                    binding.applicationFragmentContractBtnContract.setBackgroundColor(getResources().getColor(R.color.button_background_enable));
+                    binding.applicationFragmentContractBtnContract.setTextColor(getResources().getColor(R.color.button_text_enable));
                 } else {
-                    btnContract.setEnabled(false);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
-                    btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
+                    binding.applicationFragmentContractBtnContract.setEnabled(false);
+                    binding.applicationFragmentContractBtnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+                    binding.applicationFragmentContractBtnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
                 }
             }
         });
-        cb1.setOnClickListener(this);
-        cb2.setOnClickListener(this);
-        cb3.setOnClickListener(this);
-        btnContract.setOnClickListener(this);
-        btnContract.setEnabled(false);
-        btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
-        btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
-        return view;
+        binding.applicationFragmentContractCb1.setOnClickListener(this);
+        binding.applicationFragmentContractCb2.setOnClickListener(this);
+        binding.applicationFragmentContractCb3.setOnClickListener(this);
+        binding.applicationFragmentContractBtnContract.setOnClickListener(this);
+        binding.applicationFragmentContractBtnContract.setEnabled(false);
+        binding.applicationFragmentContractBtnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+        binding.applicationFragmentContractBtnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
+        return binding.getRoot();
     }
 
     @Override
@@ -89,14 +87,14 @@ public class ApplicationFragment_Contract extends Fragment implements View.OnCli
             case R.id.application_fragment_contract_cb1:
             case R.id.application_fragment_contract_cb2:
             case R.id.application_fragment_contract_cb3:
-                if (cb1.isChecked() && cb2.isChecked() && cb3.isChecked() && customCanvas.getIsTouched()) {
-                    btnContract.setEnabled(true);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_enable));
-                    btnContract.setTextColor(getResources().getColor(R.color.button_text_enable));
+                if (binding.applicationFragmentContractCb1.isChecked() && binding.applicationFragmentContractCb2.isChecked() && binding.applicationFragmentContractCb3.isChecked() && binding.applicationFragmentContractCanvas.getIsTouched()) {
+                    binding.applicationFragmentContractBtnContract.setEnabled(true);
+                    binding.applicationFragmentContractBtnContract.setBackgroundColor(getResources().getColor(R.color.button_background_enable));
+                    binding.applicationFragmentContractBtnContract.setTextColor(getResources().getColor(R.color.button_text_enable));
                 } else {
-                    btnContract.setEnabled(false);
-                    btnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
-                    btnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
+                    binding.applicationFragmentContractBtnContract.setEnabled(false);
+                    binding.applicationFragmentContractBtnContract.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+                    binding.applicationFragmentContractBtnContract.setTextColor(getResources().getColor(R.color.button_text_disable));
                 }
                 break;
         }

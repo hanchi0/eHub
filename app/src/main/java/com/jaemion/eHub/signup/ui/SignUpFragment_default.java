@@ -1,5 +1,6 @@
 package com.jaemion.eHub.signup.ui;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Context;
@@ -8,9 +9,13 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,14 +29,16 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.SignUpFragmentDefaultBinding;
+import com.jaemion.eHub.datamanager.UserDataManager;
+import com.jaemion.eHub.network.NetworkInterface;
+import com.jaemion.eHub.network.model.UserData;
 import com.jaemion.eHub.signup.SignUpActivity;
 
-public class SignUpFragment_default extends Fragment implements View.OnClickListener, TextView.OnEditorActionListener {
+public class SignUpFragment_default extends Fragment implements View.OnClickListener {
     private SignUpViewModel mViewModel;
-    Button btnNext;
-    EditText etId, etPw, etPwCheck;
+    SignUpFragmentDefaultBinding binding;
     InputMethodManager inputMethodManager;
-    TextInputLayout inputLayout_id, inputLayout_pw, inputLayout_pwCheck;
     String pwPattern, pwPattern2;
 
     public static SignUpFragment_default newInstance() {
@@ -42,22 +49,12 @@ public class SignUpFragment_default extends Fragment implements View.OnClickList
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.sign_up_fragment_default, container, false);
-        btnNext = view.findViewById(R.id.signUp_fragment_default_btnNext);
-        etId = view.findViewById(R.id.signUp_fragment_default_etID);
-        etPw = view.findViewById(R.id.signUp_fragment_default_etPW);
-        etPwCheck = view.findViewById(R.id.signUp_fragment_default_etPWCheck);
-        inputLayout_id = view.findViewById(R.id.signUp_fragment_default_inputLayout_id);
-        inputLayout_pw = view.findViewById(R.id.signUp_fragment_default_inputLayout_pw);
-        inputLayout_pwCheck = view.findViewById(R.id.signUp_fragment_default_inputLayout_pwCheck);
+        binding = DataBindingUtil.inflate(inflater, R.layout.sign_up_fragment_default, container, false);
 
         pwPattern = "^(?=.*\\d)(?=.*[~`!@#$%\\^&*()-])(?=.*[a-z])(?=.*[A-Z]).{7,15}$";
         pwPattern2 = "(.)\\1\\1\\1";
 
-        etId.setOnEditorActionListener(this);
-        etPw.setOnEditorActionListener(this);
-        etPwCheck.setOnEditorActionListener(this);
-        etId.addTextChangedListener(new TextWatcher() {
+        binding.signUpFragmentDefaultEtID.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -74,7 +71,7 @@ public class SignUpFragment_default extends Fragment implements View.OnClickList
                 checkButtonAble();
             }
         });
-        etPw.addTextChangedListener(new TextWatcher() {
+        binding.signUpFragmentDefaultEtPW.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -91,7 +88,7 @@ public class SignUpFragment_default extends Fragment implements View.OnClickList
                 checkButtonAble();
             }
         });
-        etPwCheck.addTextChangedListener(new TextWatcher() {
+        binding.signUpFragmentDefaultEtPWCheck.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -115,20 +112,20 @@ public class SignUpFragment_default extends Fragment implements View.OnClickList
             }
         });
 
-        inputLayout_id.setCounterEnabled(true);
-        inputLayout_id.setCounterMaxLength(15);
-        inputLayout_pw.setCounterEnabled(true);
-        inputLayout_pw.setCounterMaxLength(15);
-        inputLayout_pwCheck.setCounterEnabled(true);
-        inputLayout_pwCheck.setCounterMaxLength(15);
+        binding.signUpFragmentDefaultInputLayoutId.setCounterEnabled(true);
+        binding.signUpFragmentDefaultInputLayoutId.setCounterMaxLength(15);
+        binding.signUpFragmentDefaultInputLayoutPw.setCounterEnabled(true);
+        binding.signUpFragmentDefaultInputLayoutPw.setCounterMaxLength(15);
+        binding.signUpFragmentDefaultInputLayoutPwCheck.setCounterEnabled(true);
+        binding.signUpFragmentDefaultInputLayoutPwCheck.setCounterMaxLength(15);
 
-        btnNext.setOnClickListener(this);
-        btnNext.setEnabled(false);
-        btnNext.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
-        btnNext.setTextColor(getResources().getColor(R.color.button_text_disable));
+        binding.signUpFragmentDefaultBtnNext.setOnClickListener(this);
+        binding.signUpFragmentDefaultBtnNext.setEnabled(false);
+        binding.signUpFragmentDefaultBtnNext.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+        binding.signUpFragmentDefaultBtnNext.setTextColor(getResources().getColor(R.color.button_text_disable));
         inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
 
-        return view;
+        return binding.getRoot();
     }
 
     @Override
@@ -142,11 +139,11 @@ public class SignUpFragment_default extends Fragment implements View.OnClickList
     public void onResume() {
         super.onResume();
         if (mViewModel.stId != null)
-            etId.setText(mViewModel.stId);
+            binding.signUpFragmentDefaultEtID.setText(mViewModel.stId);
         if (mViewModel.stPw != null)
-            etPw.setText(mViewModel.stPw);
+            binding.signUpFragmentDefaultEtPW.setText(mViewModel.stPw);
         if (mViewModel.stPwCheck != null)
-            etPwCheck.setText(mViewModel.stPwCheck);
+            binding.signUpFragmentDefaultEtPWCheck.setText(mViewModel.stPwCheck);
         checkButtonAble();
 
         ((SignUpActivity) getActivity()).setToolbar("기본 정보 입력");
@@ -157,29 +154,48 @@ public class SignUpFragment_default extends Fragment implements View.OnClickList
     @Override
     public void onPause() {
         super.onPause();
-        inputMethodManager.hideSoftInputFromWindow(etId.getWindowToken(), 0);
-        inputMethodManager.hideSoftInputFromWindow(etPw.getWindowToken(), 0);
-        inputMethodManager.hideSoftInputFromWindow(etPwCheck.getWindowToken(), 0);
+        inputMethodManager.hideSoftInputFromWindow(binding.signUpFragmentDefaultEtID.getWindowToken(), 0);
+        inputMethodManager.hideSoftInputFromWindow(binding.signUpFragmentDefaultEtPW.getWindowToken(), 0);
+        inputMethodManager.hideSoftInputFromWindow(binding.signUpFragmentDefaultEtPWCheck.getWindowToken(), 0);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.signUp_fragment_default_btnNext:
-                mViewModel.createUser(getContext());
-                if (false) {
-                    getActivity().getSupportFragmentManager().beginTransaction()
-                            .addToBackStack(null)
-                            .setCustomAnimations(R.anim.slide_right_in, R.anim.slide_left_out, R.anim.slide_left_in, R.anim.slide_right_out)
-                            .replace(R.id.signUp_container, SIgnUpFragment_detail_Employer.newInstance())
-                            .commit();
-                } else {
-                    getActivity().getSupportFragmentManager()
-                            .beginTransaction()
-                            .addToBackStack(null).setCustomAnimations(R.anim.slide_right_in, R.anim.slide_left_out, R.anim.slide_left_in, R.anim.slide_right_out)
-                            .replace(R.id.signUp_container, SignUpFragment_detail_Employee.newInstance())
-                            .commit();
-                }
+                binding.signUpFragmentDefaultBtnNext.setEnabled(false);
+                binding.signUpFragmentDefaultBtnNext.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+                binding.signUpFragmentDefaultBtnNext.setTextColor(getResources().getColor(R.color.button_text_disable));
+                //mViewModel.createUser(getContext();
+                Call<UserData> call = NetworkInterface.retrofit.create(NetworkInterface.class).createUser(mViewModel.stId, mViewModel.stPw, mViewModel.userType);
+                call.enqueue(new Callback<UserData>() {
+                    @Override
+                    public void onResponse(Call<UserData> call, Response<UserData> response) {
+                        if (response.isSuccessful()) {
+                            UserDataManager.getInstance().setUserData(response.body());
+                            if (mViewModel.userType == SignUpFragment_Select.UserType.EMPLOYER.getValue()) {
+                                getActivity().getSupportFragmentManager().beginTransaction()
+                                        .addToBackStack(null)
+                                        .setCustomAnimations(R.anim.slide_right_in, R.anim.slide_left_out, R.anim.slide_left_in, R.anim.slide_right_out)
+                                        .replace(R.id.signUp_container, SIgnUpFragment_detail_Employer.newInstance())
+                                        .commit();
+                            } else {
+                                getActivity().getSupportFragmentManager()
+                                        .beginTransaction()
+                                        .addToBackStack(null).setCustomAnimations(R.anim.slide_right_in, R.anim.slide_left_out, R.anim.slide_left_in, R.anim.slide_right_out)
+                                        .replace(R.id.signUp_container, SignUpFragment_detail_Employee.newInstance())
+                                        .commit();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<UserData> call, Throwable t) {
+                        binding.signUpFragmentDefaultBtnNext.setEnabled(true);
+                        binding.signUpFragmentDefaultBtnNext.setBackground(getResources().getDrawable(R.drawable.button_ripple_enable));
+                        binding.signUpFragmentDefaultBtnNext.setTextColor(getResources().getColor(R.color.button_text_enable));
+                    }
+                });
                 break;
 
             default:
@@ -187,33 +203,15 @@ public class SignUpFragment_default extends Fragment implements View.OnClickList
         }
     }
 
-    @Override
-    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-        if (v.getId() == R.id.signUp_fragment_default_etID && actionId == EditorInfo.IME_ACTION_NEXT) {
-            if (!mViewModel.stId.isEmpty())
-                etPw.requestFocus();
-        } else if (v.getId() == R.id.signUp_fragment_default_etPW && actionId == EditorInfo.IME_ACTION_NEXT) {
-            if (!mViewModel.stPw.isEmpty())
-                etPwCheck.requestFocus();
-        } else if (v.getId() == R.id.signUp_fragment_default_etPWCheck && actionId == EditorInfo.IME_ACTION_DONE) {
-            if (mViewModel.isMatched) {
-                inputMethodManager.hideSoftInputFromWindow(etPwCheck.getWindowToken(), 0);
-            } else {
-                Toast.makeText(getContext(), "패스워드가 맞지 않습니다.", Toast.LENGTH_LONG).show();
-            }
-        }
-        return true;
-    }
-
     void checkButtonAble() {
         if (!mViewModel.stId.isEmpty() && !mViewModel.stPw.isEmpty() && !mViewModel.stPwCheck.isEmpty() && mViewModel.isMatched) {
-            btnNext.setEnabled(true);
-            btnNext.setBackground(getResources().getDrawable(R.drawable.button_ripple_enable));
-            btnNext.setTextColor(getResources().getColor(R.color.button_text_enable));
+            binding.signUpFragmentDefaultBtnNext.setEnabled(true);
+            binding.signUpFragmentDefaultBtnNext.setBackground(getResources().getDrawable(R.drawable.button_ripple_enable));
+            binding.signUpFragmentDefaultBtnNext.setTextColor(getResources().getColor(R.color.button_text_enable));
         } else {
-            btnNext.setEnabled(false);
-            btnNext.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
-            btnNext.setTextColor(getResources().getColor(R.color.button_text_disable));
+            binding.signUpFragmentDefaultBtnNext.setEnabled(false);
+            binding.signUpFragmentDefaultBtnNext.setBackgroundColor(getResources().getColor(R.color.button_background_disable));
+            binding.signUpFragmentDefaultBtnNext.setTextColor(getResources().getColor(R.color.button_text_disable));
         }
     }
 }

@@ -1,16 +1,22 @@
 package com.jaemion.eHub.userinfo.ui;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
+
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.UserInfoFragmentMainEmployeeBinding;
+import com.jaemion.eHub.databinding.UserInfoFragmentMainEmployerBinding;
 import com.jaemion.eHub.secession.SecessionActivity;
 
 
@@ -22,20 +28,23 @@ public class UserInfoFragment_Main extends Fragment implements View.OnClickListe
         return new UserInfoFragment_Main();
     }
 
+    UserInfoFragmentMainEmployeeBinding employeeBinding;
+    UserInfoFragmentMainEmployerBinding employerBinding;
+
     @Nullable
     @Override
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view;
         if (true) {
-            view = inflater.inflate(R.layout.user_info_fragment_main_employee, container, false);
-            view.findViewById(R.id.user_info_fragment_main_employee_tvSecession).setOnClickListener(this);
+            employeeBinding = DataBindingUtil.inflate(inflater, R.layout.user_info_fragment_main_employee, container, false);
+            employeeBinding.userInfoFragmentMainEmployeeTvSecession.setOnClickListener(this);
+            return employeeBinding.getRoot();
         } else {
-            view = inflater.inflate(R.layout.user_info_fragment_main_employer, container, false);
-            view.findViewById(R.id.user_info_fragment_main_employer_tvSecession).setOnClickListener(this);
+            employerBinding = DataBindingUtil.inflate(inflater, R.layout.user_info_fragment_main_employer, container, false);
+            employerBinding.userInfoFragmentMainEmployerTvSecession.setOnClickListener(this);
+            return employerBinding.getRoot();
         }
-
-        return view;
     }
 
     @Override

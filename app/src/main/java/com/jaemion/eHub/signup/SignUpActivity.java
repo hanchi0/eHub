@@ -3,29 +3,30 @@ package com.jaemion.eHub.signup;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
 
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.SignUpActivityBinding;
 import com.jaemion.eHub.signup.ui.SignUpFragment_Select;
 
 public class SignUpActivity extends AppCompatActivity {
-    Toolbar toolbar;
-    TextView toolbarTitle;
+    SignUpActivityBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_up_activity);
+        binding = DataBindingUtil.setContentView(this, R.layout.sign_up_activity);
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.signUp_container, SignUpFragment_Select.newInstance())
                     .commitNow();
         }
-        toolbar = (Toolbar) findViewById(R.id.signUp_toolbar);
-        toolbarTitle = findViewById(R.id.signUp_toolbar_title);
-        setSupportActionBar(toolbar);
+
+        setSupportActionBar(binding.signUpToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_black);
@@ -45,8 +46,8 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void setToolbar(String title) {
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.signUpToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbarTitle.setText(title);
+        binding.signUpToolbarTitle.setText(title);
     }
 }

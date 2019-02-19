@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
 
 import android.os.PatternMatcher;
 import android.text.Editable;
@@ -21,6 +22,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.SignInActivityBinding;
+import com.jaemion.eHub.databinding.SignInFragmentSignInBinding;
 import com.jaemion.eHub.main.MainActivity;
 import com.jaemion.eHub.signin.ui.SignInFragment_SignIn;
 import com.jaemion.eHub.signup.SignUpActivity;
@@ -28,21 +31,19 @@ import com.jaemion.eHub.signup.SignUpActivity;
 import java.util.regex.Pattern;
 
 public class SignInActivity extends AppCompatActivity {
-    Toolbar toolbar;
-    TextView toolbarTitle;
+    SignInActivityBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_in_activity);
+        binding = DataBindingUtil.setContentView(this, R.layout.sign_in_activity);
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.signIn_container, SignInFragment_SignIn.newInstance())
                     .commitNow();
         }
-        toolbar = (Toolbar) findViewById(R.id.signIn_toolbar);
-        toolbarTitle = findViewById(R.id.signIn_toolbar_title);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.signInToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_black);
@@ -59,8 +60,8 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     public void setToolbar(String title) {
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.signInToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbarTitle.setText(title);
+        binding.signInToolbarTitle.setText(title);
     }
 }

@@ -1,18 +1,26 @@
 package com.jaemion.eHub.userinfo.ui;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
+
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.UserInfoFragmentModifyEmployeeBinding;
+import com.jaemion.eHub.databinding.UserInfoFragmentModifyEmployerBinding;
 
 public class UserInfoFragment_Modify extends Fragment {
 
+    UserInfoFragmentModifyEmployeeBinding employeeBinding;
+    UserInfoFragmentModifyEmployerBinding employerBinding;
 
     private UserInfoFragmentViewModel mViewModel;
 
@@ -27,14 +35,14 @@ public class UserInfoFragment_Modify extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view;
 
         if (true) {
-            view = inflater.inflate(R.layout.user_info_fragment_main_employee, container, false);
+            employeeBinding = DataBindingUtil.inflate(inflater, R.layout.user_info_fragment_main_employee, container, false);
+            return employeeBinding.getRoot();
         } else {
-            view = inflater.inflate(R.layout.user_info_fragment_main_employer, container, false);
+            employerBinding = DataBindingUtil.inflate(inflater, R.layout.user_info_fragment_main_employer, container, false);
+            return employerBinding.getRoot();
         }
-        return view;
     }
 
     @Override

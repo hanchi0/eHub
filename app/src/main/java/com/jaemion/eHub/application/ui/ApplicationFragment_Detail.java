@@ -1,11 +1,15 @@
 package com.jaemion.eHub.application.ui;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
+
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.Toolbar;
+
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,11 +18,12 @@ import android.widget.Button;
 
 import com.jaemion.eHub.R;
 import com.jaemion.eHub.application.ApplicationActivity;
+import com.jaemion.eHub.databinding.ApplicationFragmentDetailBinding;
 
 public class ApplicationFragment_Detail extends Fragment implements View.OnClickListener {
 
     private ApplicationViewModel mViewModel;
-    Button btnApply;
+    ApplicationFragmentDetailBinding binding;
 
     public static ApplicationFragment_Detail newInstance() {
         return new ApplicationFragment_Detail();
@@ -31,17 +36,15 @@ public class ApplicationFragment_Detail extends Fragment implements View.OnClick
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.application_fragment_detail, container, false);
-        Toolbar bar = view.findViewById(R.id.application_fragment_detail_toolbar);
+        binding = DataBindingUtil.inflate(inflater, R.layout.application_fragment_detail, container, false);
         ((ApplicationActivity) getActivity()).getSupportActionBar().hide();
-        ((ApplicationActivity) getActivity()).setSupportActionBar(bar);
+        ((ApplicationActivity) getActivity()).setSupportActionBar(binding.applicationFragmentDetailToolbar);
         ((ApplicationActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
         ((ApplicationActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((ApplicationActivity) getActivity()).getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_black);
         ((ApplicationActivity) getActivity()).getSupportActionBar().show();
-        btnApply = view.findViewById(R.id.application_fragment_detail_btnApply);
-        btnApply.setOnClickListener(this);
-        return view;
+        binding.applicationFragmentDetailBtnApply.setOnClickListener(this);
+        return binding.getRoot();
     }
 
     @Override
