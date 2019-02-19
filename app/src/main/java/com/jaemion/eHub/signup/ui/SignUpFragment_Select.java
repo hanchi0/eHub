@@ -1,11 +1,15 @@
 package com.jaemion.eHub.signup.ui;
 
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +17,29 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.SignUpFragmentSelectBinding;
 import com.jaemion.eHub.signin.SignInActivity;
 import com.jaemion.eHub.signup.SignUpActivity;
 
 public class SignUpFragment_Select extends Fragment implements View.OnClickListener {
     private SignUpViewModel mViewModel;
-    Button btnEmployer, btnEmployee;
-    TextView tvLogin;
+    SignUpFragmentSelectBinding binding;
+
+    public enum UserType {
+        GUSET(0),
+        EMPLOYER(1),
+        EMPLOYEE(2);
+
+        private int value;
+
+        private UserType(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
 
     public static SignUpFragment_Select newInstance() {
         return new SignUpFragment_Select();
@@ -29,34 +49,32 @@ public class SignUpFragment_Select extends Fragment implements View.OnClickListe
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.sign_up_fragment_select, container, false);
-        btnEmployer = view.findViewById(R.id.signUp_fragment_select_btnEmployer);
-        btnEmployee = view.findViewById(R.id.signUp_fragment_select_btnEmployee);
-        tvLogin = view.findViewById(R.id.signUp_fragment_select_tvLogin);
+        binding = DataBindingUtil.inflate(inflater, R.layout.sign_up_fragment_select, container, false);
 
-        btnEmployer.setOnClickListener(this);
-        btnEmployee.setOnClickListener(this);
-        tvLogin.setOnClickListener(this);
-        return view;
+        binding.signUpFragmentSelectBtnEmployer.setOnClickListener(this);
+        binding.signUpFragmentSelectBtnEmployee.setOnClickListener(this);
+        binding.signUpFragmentSelectTvLogin.setOnClickListener(this);
+        return binding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(SignUpViewModel.class);
         // TODO: Use the ViewModel
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        ((SignUpActivity)getActivity()).getSupportActionBar().hide();
+        ((SignUpActivity) getActivity()).getSupportActionBar().hide();
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.signUp_fragment_select_btnEmployer:
+                mViewModel.userType = UserType.EMPLOYER.value;
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .addToBackStack(null)
                         .setCustomAnimations(R.anim.slide_right_in, R.anim.slide_left_out, R.anim.slide_left_in, R.anim.slide_right_out)
@@ -64,6 +82,7 @@ public class SignUpFragment_Select extends Fragment implements View.OnClickListe
                         .commit();
                 break;
             case R.id.signUp_fragment_select_btnEmployee:
+                mViewModel.userType = UserType.EMPLOYEE.value;
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .addToBackStack(null)
                         .setCustomAnimations(R.anim.slide_right_in, R.anim.slide_left_out, R.anim.slide_left_in, R.anim.slide_right_out)

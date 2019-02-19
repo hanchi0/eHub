@@ -1,41 +1,37 @@
 package com.jaemion.eHub.order;
 
-import android.app.DatePickerDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
+
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.OrderActivityBinding;
 import com.jaemion.eHub.order.ui.OrderFragment_Estimate;
 
-import java.text.DateFormat;
-import java.util.Calendar;
-
-public class OrderActivity extends AppCompatActivity{
-    TextView toolbarTitle;
+public class OrderActivity extends AppCompatActivity {
+    OrderActivityBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.order_activity);
+        binding = DataBindingUtil.setContentView(this, R.layout.order_activity);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.order_container, OrderFragment_Estimate.newInstance())
                     .commitNow();
         }
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.order_toolbar);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.orderToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_left_black);
-
-        toolbarTitle = findViewById(R.id.order_toolbar_title);
     }
 
     @Override
@@ -62,12 +58,9 @@ public class OrderActivity extends AppCompatActivity{
             super.onBackPressed();
     }
 
-    public TextView getToolbarTitle() {
-        return toolbarTitle;
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return false;
+    public void setToolbar(String title) {
+        setSupportActionBar(binding.orderToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        binding.orderToolbarTitle.setText(title);
     }
 }

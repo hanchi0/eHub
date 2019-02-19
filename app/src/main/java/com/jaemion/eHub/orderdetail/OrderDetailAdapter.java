@@ -1,8 +1,8 @@
 package com.jaemion.eHub.orderdetail;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jaemion.eHub.R;
-import com.jaemion.eHub.main.ui.MainFragment_List_Adapter;
-
-import org.w3c.dom.Text;
 
 public class OrderDetailAdapter extends RecyclerView.Adapter<OrderDetailAdapter.ViewHolder> {
     Context context;

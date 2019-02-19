@@ -2,11 +2,12 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="buttonText">#637079</color>
-    <color name="buttonTextHighlight">#ffffff</color>
-    <color name="textBold">#000000</color>
-    <color name="textNormal">#666666</color>
-    <color name="buttonBackground">#f4f6f7</color>
-    <color name="buttonBackgroundHighlight">#009688</color>
+    <color name="colorAccent">#009688</color>
+    <color name="dark_green">#2f5b5a</color>
+    <color name="default_green">#009688</color>
+    <color name="button_background_enable">#009688</color>
+    <color name="button_background_enable_dark">#2f5b5a</color>
+    <color name="button_background_disable">#f4f6f7</color>
+    <color name="button_text_disable">#637079</color>
+    <color name="button_text_enable">#ffffff</color>
 </resources>

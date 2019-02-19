@@ -1,14 +1,16 @@
 package com.jaemion.eHub.main.ui;
 
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.content.Intent;
-import android.gesture.Gesture;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -16,17 +18,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jaemion.eHub.R;
-import com.jaemion.eHub.application.ApplicationActivity;
 import com.jaemion.eHub.customview.CustomViewPager;
+import com.jaemion.eHub.databinding.MainFragmentMainBinding;
 import com.jaemion.eHub.main.MainActivity;
 import com.jaemion.eHub.order.OrderActivity;
 
 import static android.app.Activity.RESULT_OK;
 
-public class MainFragment_Main extends Fragment implements  ViewPager.OnPageChangeListener{
+public class MainFragment_Main extends Fragment implements ViewPager.OnPageChangeListener {
     private MainViewModel mViewModel;
     MainFragment_Main_Adapter adapter;
     CustomViewPager pager;
+    MainFragmentMainBinding binding;
 
     public static MainFragment_Main newInstance() {
         return new MainFragment_Main();
@@ -38,10 +41,10 @@ public class MainFragment_Main extends Fragment implements  ViewPager.OnPageChan
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == 0){
-            if(resultCode == RESULT_OK){
-                if(data.getStringExtra("destination").equals("List")){
-                    ((MainActivity)getActivity()).getNavigationVIew().setSelectedItemId(R.id.main_navigation_dashboard);
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                if (data.getStringExtra("destination").equals("List")) {
+                    ((MainActivity) getActivity()).getNavigationVIew().setSelectedItemId(R.id.main_navigation_dashboard);
                     getActivity().getSupportFragmentManager().beginTransaction()
                             .replace(R.id.main_container, MainFragment_List.newInstance())
                             .commitNow();
@@ -54,11 +57,11 @@ public class MainFragment_Main extends Fragment implements  ViewPager.OnPageChan
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.main_fragment_main, container, false);
-        pager = view.findViewById(R.id.main_fragment_main_viewPager);
+        binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment_main, container, false);
+        pager = binding.mainFragmentMainViewPager;
         adapter = new MainFragment_Main_Adapter(getLayoutInflater());
 
-        final GestureDetector gd = new GestureDetector(getContext(),new GestureDetector.SimpleOnGestureListener(){
+        final GestureDetector gd = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onSingleTapUp(MotionEvent e) {
                 Intent intent = null;
@@ -69,7 +72,7 @@ public class MainFragment_Main extends Fragment implements  ViewPager.OnPageChan
                     intent = new Intent(getActivity(), ApplicationActivity.class);
                 else
                     return;*/
-                intent = new Intent(getActivity(), ApplicationActivity.class);
+                intent = new Intent(getActivity(), OrderActivity.class);
 
                 switch (pager.getCurrentItem()) {
                     case 1:
@@ -87,7 +90,7 @@ public class MainFragment_Main extends Fragment implements  ViewPager.OnPageChan
                     default:
                         return false;
                 }
-                startActivityForResult(intent,0);
+                startActivityForResult(intent, 0);
                 return true;
             }
         });
@@ -104,7 +107,7 @@ public class MainFragment_Main extends Fragment implements  ViewPager.OnPageChan
         pager.setPageMargin(45);
         pager.setPadding(150, 0, 150, 0);
         pager.setCurrentItem(1);
-        return view;
+        return binding.getRoot();
     }
 
     @Override
@@ -117,8 +120,8 @@ public class MainFragment_Main extends Fragment implements  ViewPager.OnPageChan
     @Override
     public void onResume() {
         super.onResume();
-        ((MainActivity)getActivity()).getToolbarTitle().setVisibility(View.INVISIBLE);
-        ((MainActivity)getActivity()).getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.appbar_fill_white));
+        ((MainActivity) getActivity()).getToolbarTitle().setVisibility(View.INVISIBLE);
+        ((MainActivity) getActivity()).getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.view_appbar_borderless));
     }
 
     @Override

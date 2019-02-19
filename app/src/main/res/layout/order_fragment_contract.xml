@@ -1,150 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/background_light">
+<layout>
 
-    <TextView
-        android:id="@+id/order_fragment_contract_tvInfo1"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="37.5dp"
-        android:background="@drawable/view_border"
-        android:gravity="center"
-        android:text="계약서에 표기되는 내용"
-        android:textColor="@color/textBold"
-        android:textSize="15sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <CheckBox
-        android:id="@+id/order_fragment_contract_cb1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:button="@drawable/check_box"
-        app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo1"
-        app:layout_constraintLeft_toLeftOf="@id/order_fragment_contract_tvInfo1"
-        app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo1" />
-
-    <ImageView
-        android:id="@+id/order_fragment_contract_iv1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="5dp"
-        android:src="@drawable/ic_right_black"
-        app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo1"
-        app:layout_constraintRight_toRightOf="@id/order_fragment_contract_tvInfo1"
-        app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo1" />
-
-    <TextView
-        android:id="@+id/order_fragment_contract_tvInfo2"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/view_border"
-        android:gravity="center"
-        android:text="계약서에 표기되는 내용"
-        android:textColor="@color/textBold"
-        android:textSize="15sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo1" />
-
-    <CheckBox
-        android:id="@+id/order_fragment_contract_cb2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:button="@drawable/check_box"
-        app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo2"
-        app:layout_constraintLeft_toLeftOf="@id/order_fragment_contract_tvInfo2"
-        app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo2" />
-
-    <ImageView
-        android:id="@+id/order_fragment_contract_iv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="5dp"
-        android:src="@drawable/ic_right_black"
-        app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo2"
-        app:layout_constraintRight_toRightOf="@id/order_fragment_contract_tvInfo2"
-        app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo2" />
-
-    <TextView
-        android:id="@+id/order_fragment_contract_tvInfo3"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/view_border"
-        android:gravity="center"
-        android:text="계약서에 표기되는 내용"
-        android:textColor="@color/textBold"
-        android:textSize="15sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo2" />
-
-    <CheckBox
-        android:id="@+id/order_fragment_contract_cb3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="18dp"
-        android:button="@drawable/check_box"
-        app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo3"
-        app:layout_constraintLeft_toLeftOf="@id/order_fragment_contract_tvInfo3"
-        app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo3" />
-
-    <ImageView
-        android:id="@+id/order_fragment_contract_iv3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="5dp"
-        android:src="@drawable/ic_right_black"
-        app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo3"
-        app:layout_constraintRight_toRightOf="@id/order_fragment_contract_tvInfo3"
-        app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo3" />
-
-    <TextView
-        android:layout_width="28dp"
-        android:layout_height="22dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="74dp"
-        android:gravity="center"
-        android:text="서명"
-        android:textColor="@color/textBold"
-        android:textSize="15sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo3" />
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="111dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/view_border"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo3">
+        android:layout_height="match_parent"
+        android:background="@android:color/background_light">
 
-        <com.jaemion.eHub.customview.CustomCanvas
-            android:id="@+id/order_fragment_contract_canvas"
+        <TextView
+            android:id="@+id/order_fragment_contract_tvInfo1"
             android:layout_width="match_parent"
-            android:layout_height="130dp" />
-    </LinearLayout>
+            android:layout_height="48dp"
+            android:layout_marginLeft="@dimen/view_side_margin"
+            android:layout_marginTop="37.5dp"
+            android:layout_marginRight="@dimen/view_side_margin"
+            android:background="@drawable/view_border"
+            android:gravity="center"
+            android:text="계약서에 표기되는 내용"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/order_fragment_contract_btnContract"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:background="@color/buttonBackground"
-        android:text="계약서 작성"
-        android:textColor="@color/buttonText"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        <CheckBox
+            android:id="@+id/order_fragment_contract_cb1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:button="@drawable/check_box"
+            app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo1"
+            app:layout_constraintLeft_toLeftOf="@id/order_fragment_contract_tvInfo1"
+            app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo1" />
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/order_fragment_contract_iv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_right_black"
+            app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo1"
+            app:layout_constraintRight_toRightOf="@id/order_fragment_contract_tvInfo1"
+            app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo1" />
+
+        <TextView
+            android:id="@+id/order_fragment_contract_tvInfo2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="@dimen/view_side_margin"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="@dimen/view_side_margin"
+            android:background="@drawable/view_border"
+            android:gravity="center"
+            android:text="계약서에 표기되는 내용"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo1" />
+
+        <CheckBox
+            android:id="@+id/order_fragment_contract_cb2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:button="@drawable/check_box"
+            app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo2"
+            app:layout_constraintLeft_toLeftOf="@id/order_fragment_contract_tvInfo2"
+            app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo2" />
+
+        <ImageView
+            android:id="@+id/order_fragment_contract_iv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_right_black"
+            app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo2"
+            app:layout_constraintRight_toRightOf="@id/order_fragment_contract_tvInfo2"
+            app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo2" />
+
+        <TextView
+            android:id="@+id/order_fragment_contract_tvInfo3"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="@dimen/view_side_margin"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="@dimen/view_side_margin"
+            android:background="@drawable/view_border"
+            android:gravity="center"
+            android:text="계약서에 표기되는 내용"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo2" />
+
+        <CheckBox
+            android:id="@+id/order_fragment_contract_cb3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:button="@drawable/check_box"
+            app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo3"
+            app:layout_constraintLeft_toLeftOf="@id/order_fragment_contract_tvInfo3"
+            app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo3" />
+
+        <ImageView
+            android:id="@+id/order_fragment_contract_iv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_right_black"
+            app:layout_constraintBottom_toBottomOf="@id/order_fragment_contract_tvInfo3"
+            app:layout_constraintRight_toRightOf="@id/order_fragment_contract_tvInfo3"
+            app:layout_constraintTop_toTopOf="@id/order_fragment_contract_tvInfo3" />
+
+        <TextView
+            android:layout_width="28dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="74dp"
+            android:gravity="center"
+            android:text="서명"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo3" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/view_side_margin"
+            android:layout_marginTop="111dp"
+            android:layout_marginRight="@dimen/view_side_margin"
+            android:background="@drawable/view_canvas_border"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/order_fragment_contract_tvInfo3">
+
+            <com.jaemion.eHub.customview.CustomCanvas
+                android:id="@+id/order_fragment_contract_canvas"
+                android:layout_width="match_parent"
+                android:layout_height="130dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/order_fragment_contract_btnContract"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/button_background_disable"
+            android:text="계약서 작성"
+            android:textColor="@color/button_text_disable"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

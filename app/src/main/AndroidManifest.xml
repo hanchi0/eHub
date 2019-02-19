@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,8 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".application.ApplicationActivity"></activity>
-        <activity android:name=".orderdetail.OrderDetailActivity" />
+        <activity android:name=".secession.SecessionActivity"></activity>
+        <activity android:name=".userinfo.UserInfoActivity" />
+        <activity
+            android:name=".application.ApplicationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".orderdetail.OrderDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".signin.SignInActivity"
             android:screenOrientation="portrait" />
@@ -23,7 +30,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".signup.SignUpActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".main.MainActivity"
             android:screenOrientation="portrait" />

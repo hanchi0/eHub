@@ -1,260 +1,301 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/order_fragment_estimate_scrollView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/background_light">
+<layout>
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
+        android:background="@android:color/background_light">
 
-        <TextView
-            android:id="@+id/order_fragment_estimate_tvImage"
-            android:layout_width="83dp"
-            android:layout_height="22dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="28dp"
-            android:text="이미지 업로드"
-            android:textColor="@color/textBold"
-            android:textSize="15sp" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/order_fragment_estimate_btnOrder"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/order_fragment_estimate_ivInfo1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_below="@id/order_fragment_estimate_tvImage"
-            android:layout_marginLeft="20dp"
-            android:background="#f3f3f3"
-            android:scaleType="center"
-            android:src="@drawable/ic_camera_alt" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/order_fragment_estimate_ivInfo2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_below="@id/order_fragment_estimate_tvImage"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/order_fragment_estimate_ivInfo1"
-            android:background="#f3f3f3"
-            android:scaleType="center"
-            android:src="@drawable/ic_camera_alt" />
+                <TextView
+                    android:id="@+id/order_fragment_estimate_tvImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="이미지 업로드"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="@id/order_fragment_estimate_tvOrderName"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/order_fragment_estimate_ivInfo3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_below="@id/order_fragment_estimate_tvImage"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/order_fragment_estimate_ivInfo2"
-            android:background="#f3f3f3"
-            android:scaleType="center"
-            android:src="@drawable/ic_camera_alt" />
+                <ImageView
+                    android:id="@+id/order_fragment_estimate_ivInfo1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="15dp"
+                    android:background="#f3f3f3"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_camera_alt"
+                    app:layout_constraintLeft_toLeftOf="@id/order_fragment_estimate_inputText_orderName"
+                    app:layout_constraintRight_toLeftOf="@id/order_fragment_estimate_ivInfo2"
+                    app:layout_constraintTop_toBottomOf="@id/order_fragment_estimate_tvImage" />
 
-        <TextView
-            android:id="@+id/order_fragment_estimate_tvOrderName"
-            android:layout_width="83dp"
-            android:layout_height="22dp"
-            android:layout_below="@id/order_fragment_estimate_ivInfo1"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:text="발주작업명"
-            android:textColor="@color/textBold"
-            android:textSize="15sp" />
+                <ImageView
+                    android:id="@+id/order_fragment_estimate_ivInfo2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="#f3f3f3"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_camera_alt"
+                    app:layout_constraintLeft_toRightOf="@id/order_fragment_estimate_ivInfo1"
+                    app:layout_constraintRight_toLeftOf="@id/order_fragment_estimate_ivInfo3"
+                    app:layout_constraintTop_toTopOf="@id/order_fragment_estimate_ivInfo1" />
 
-        <EditText
-            android:id="@+id/order_fragment_estimate_etOrderName"
-            android:layout_width="320dp"
-            android:layout_height="50dp"
-            android:layout_below="@id/order_fragment_estimate_tvOrderName"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/view_border"
-            android:hint="작업명을 기재해주세요." />
+                <ImageView
+                    android:id="@+id/order_fragment_estimate_ivInfo3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="#f3f3f3"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_camera_alt"
+                    app:layout_constraintLeft_toRightOf="@id/order_fragment_estimate_ivInfo2"
+                    app:layout_constraintRight_toRightOf="@id/order_fragment_estimate_inputText_orderName"
+                    app:layout_constraintTop_toTopOf="@id/order_fragment_estimate_ivInfo1" />
 
-        <TextView
-            android:id="@+id/order_fragment_estimate_tvOrderDuration"
-            android:layout_width="83dp"
-            android:layout_height="22dp"
-            android:layout_below="@id/order_fragment_estimate_etOrderName"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:text="작업일정"
-            android:textColor="@color/textBold"
-            android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/order_fragment_estimate_tvOrderName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="발주작업명"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="@id/order_fragment_estimate_inputText_orderName"
+                    app:layout_constraintTop_toBottomOf="@id/order_fragment_estimate_ivInfo1" />
 
-        <TextView
-            android:id="@+id/order_fragment_estimate_tvOrderDurationSelect"
-            android:layout_width="320dp"
-            android:layout_height="50dp"
-            android:layout_below="@id/order_fragment_estimate_tvOrderDuration"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/view_border"
-            android:gravity="center"
-            android:text="yyyy-mm-dd() - yyyy-mm-dd(), 2일"
-            android:textSize="13sp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/order_fragment_estimate_inputText_orderName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/view_side_margin"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="@dimen/view_side_margin"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/order_fragment_estimate_tvOrderName">
 
-        <ImageView
-            android:id="@+id/order_fragment_estimate_ivCalendar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/order_fragment_estimate_tvOrderDurationSelect"
-            android:layout_alignTop="@+id/order_fragment_estimate_tvOrderDurationSelect"
-            android:layout_alignBottom="@id/order_fragment_estimate_tvOrderDurationSelect"
-            android:layout_marginStart="15dp"
-            android:src="@drawable/ic_calendar" />
+                    <EditText
+                        android:id="@+id/order_fragment_estimate_etOrderName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/view_edittext_border"
+                        android:hint="작업명을 기재해주세요."
+                        android:inputType="text"
+                        android:paddingLeft="@dimen/editText_padding" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/order_fragment_estimate_tvLocation"
-            android:layout_width="83dp"
-            android:layout_height="22dp"
-            android:layout_below="@id/order_fragment_estimate_tvOrderDurationSelect"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:text="현장주소입력"
-            android:textColor="@color/textBold"
-            android:textSize="15sp" />
 
-        <EditText
-            android:id="@+id/order_fragment_estimate_etLocation"
-            android:layout_width="318dp"
-            android:layout_height="50dp"
-            android:layout_below="@id/order_fragment_estimate_tvLocation"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/view_border"
-            android:hint="주소" />
+                <TextView
+                    android:id="@+id/order_fragment_estimate_tvOrderDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="작업일정"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="@id/order_fragment_estimate_tvOrderDurationSelect"
+                    app:layout_constraintTop_toBottomOf="@id/order_fragment_estimate_inputText_orderName" />
 
-        <TextView
-            android:id="@+id/order_fragment_estimate_tvOption"
-            android:layout_width="83dp"
-            android:layout_height="22dp"
-            android:layout_below="@id/order_fragment_estimate_etLocation"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:text="차량옵션입력"
-            android:textColor="@color/textBold"
-            android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/order_fragment_estimate_tvOrderDurationSelect"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="@dimen/view_side_margin"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="@dimen/view_side_margin"
+                    android:background="@drawable/view_border"
+                    android:gravity="center"
+                    android:text="yyyy-mm-dd() - yyyy-mm-dd(), 2일"
+                    android:textSize="13sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/order_fragment_estimate_tvOrderDuration" />
 
-        <Spinner
-            android:id="@+id/order_fragment_estimate_spinnerOption"
-            android:layout_width="320dp"
-            android:layout_height="50dp"
-            android:layout_below="@id/order_fragment_estimate_tvOption"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/view_border" />
-        <!--<EditText
-            android:id="@+id/order_fragment_estimate_etOption"
-            android:layout_width="320dp"
-            android:layout_height="50dp"
-            android:layout_below="@id/order_fragment_estimate_tvOption"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/view_border"
-            android:hint="옵션" />-->
+                <ImageView
+                    android:id="@+id/order_fragment_estimate_ivCalendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/ic_calendar"
+                    app:layout_constraintBottom_toBottomOf="@id/order_fragment_estimate_tvOrderDurationSelect"
+                    app:layout_constraintLeft_toLeftOf="@id/order_fragment_estimate_tvOrderDurationSelect"
+                    app:layout_constraintTop_toTopOf="@id/order_fragment_estimate_tvOrderDurationSelect" />
 
-        <TextView
-            android:id="@+id/order_fragment_estimate_tvPay"
-            android:layout_width="83dp"
-            android:layout_height="22dp"
-            android:layout_below="@id/order_fragment_estimate_spinnerOption"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:text="작업단가"
-            android:textColor="@color/textBold"
-            android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/order_fragment_estimate_tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="현장주소입력"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="@id/order_fragment_estimate_inputText_location"
+                    app:layout_constraintTop_toBottomOf="@id/order_fragment_estimate_tvOrderDurationSelect" />
 
-        <EditText
-            android:id="@+id/order_fragment_estimate_etPay"
-            android:layout_width="320dp"
-            android:layout_height="50dp"
-            android:layout_below="@id/order_fragment_estimate_tvPay"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/view_border"
-            android:hint="금액을 적어주세요."
-            android:inputType="number" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/order_fragment_estimate_inputText_location"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/view_side_margin"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="@dimen/view_side_margin"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/order_fragment_estimate_tvLocation">
 
-        <TextView
-            android:id="@+id/order_fragment_estimate_tvNumOfCar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/order_fragment_estimate_etPay"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="31dp"
-            android:text="차량수"
-            android:textColor="@color/textBold"
-            android:textSize="15sp" />
+                    <EditText
+                        android:id="@+id/order_fragment_estimate_etLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/view_edittext_border"
+                        android:hint="주소"
+                        android:inputType="text"
+                        android:paddingLeft="@dimen/editText_padding" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/order_fragment_estimate_btnMinus"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_alignTop="@id/order_fragment_estimate_tvNumOfCar"
-            android:layout_marginLeft="130dp"
-            android:layout_toRightOf="@id/order_fragment_estimate_tvNumOfCar"
-            android:background="@drawable/view_border" />
 
-        <ImageView
-            android:layout_width="9dp"
-            android:layout_height="3dp"
-            android:layout_alignStart="@+id/order_fragment_estimate_btnMinus"
-            android:layout_alignLeft="@id/order_fragment_estimate_btnMinus"
-            android:layout_alignTop="@+id/order_fragment_estimate_btnMinus"
-            android:layout_alignEnd="@+id/order_fragment_estimate_btnMinus"
-            android:layout_alignBottom="@+id/order_fragment_estimate_btnMinus"
-            android:layout_margin="15dp"
-            android:elevation="2dp"
-            android:src="@drawable/ic_mius" />
+                <TextView
+                    android:id="@+id/order_fragment_estimate_tvOption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="차량옵션입력"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="@id/order_fragment_estimate_spinnerOption"
+                    app:layout_constraintTop_toBottomOf="@id/order_fragment_estimate_inputText_location" />
 
-        <TextView
-            android:id="@+id/order_fragment_estimate_tvCurrentNumOfCar"
-            android:layout_width="64dp"
-            android:layout_height="42dp"
-            android:layout_alignTop="@id/order_fragment_estimate_btnMinus"
-            android:layout_toRightOf="@id/order_fragment_estimate_btnMinus"
-            android:background="@drawable/view_border"
-            android:gravity="center"
-            android:text="0"
-            android:textColor="#979797"
-            android:textSize="20sp" />
+                <Spinner
+                    android:id="@+id/order_fragment_estimate_spinnerOption"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="@dimen/view_side_margin"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="@dimen/view_side_margin"
+                    android:background="@drawable/view_border"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/order_fragment_estimate_tvOption" />
 
-        <Button
-            android:id="@+id/order_fragment_estimate_btnPlus"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_alignTop="@id/order_fragment_estimate_tvCurrentNumOfCar"
-            android:layout_toRightOf="@id/order_fragment_estimate_tvCurrentNumOfCar"
-            android:background="@drawable/view_border" />
+                <TextView
+                    android:id="@+id/order_fragment_estimate_tvPay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="작업단가"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="@id/order_fragment_estimate_inputText_pay"
+                    app:layout_constraintTop_toBottomOf="@id/order_fragment_estimate_spinnerOption" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_plus"
-            android:layout_alignTop="@id/order_fragment_estimate_btnPlus"
-            android:layout_alignBottom="@id/order_fragment_estimate_btnPlus"
-            android:layout_alignRight="@id/order_fragment_estimate_btnPlus"
-            android:layout_alignLeft="@id/order_fragment_estimate_btnPlus"
-            android:elevation="2dp"
-            android:layout_margin="15dp"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/order_fragment_estimate_inputText_pay"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/view_side_margin"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="@dimen/view_side_margin"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/order_fragment_estimate_tvPay">
 
+                    <EditText
+                        android:id="@+id/order_fragment_estimate_etPay"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/view_edittext_border"
+                        android:hint="금액을 적어주세요."
+                        android:inputType="number"
+                        android:paddingLeft="@dimen/editText_padding" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/order_fragment_estimate_tvNumOfCar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="31dp"
+                    android:text="차량수"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toLeftOf="@id/order_fragment_estimate_inputText_pay"
+                    app:layout_constraintTop_toBottomOf="@id/order_fragment_estimate_inputText_pay" />
+
+                <Button
+                    android:id="@+id/order_fragment_estimate_btnMinus"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/view_border"
+                    app:layout_constraintBottom_toBottomOf="@id/order_fragment_estimate_tvNumOfCar"
+                    app:layout_constraintRight_toLeftOf="@id/order_fragment_estimate_tvCurrentNumOfCar"
+                    app:layout_constraintTop_toTopOf="@id/order_fragment_estimate_tvNumOfCar" />
+
+                <ImageView
+                    android:layout_width="9dp"
+                    android:layout_height="3dp"
+                    android:layout_margin="15dp"
+                    android:elevation="2dp"
+                    android:src="@drawable/ic_mius"
+                    app:layout_constraintBottom_toBottomOf="@id/order_fragment_estimate_btnMinus"
+                    app:layout_constraintLeft_toLeftOf="@id/order_fragment_estimate_btnMinus"
+                    app:layout_constraintRight_toRightOf="@id/order_fragment_estimate_btnMinus"
+                    app:layout_constraintTop_toTopOf="@id/order_fragment_estimate_btnMinus" />
+
+                <TextView
+                    android:id="@+id/order_fragment_estimate_tvCurrentNumOfCar"
+                    android:layout_width="64dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/view_border"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#979797"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@id/order_fragment_estimate_tvNumOfCar"
+                    app:layout_constraintRight_toLeftOf="@id/order_fragment_estimate_btnPlus"
+                    app:layout_constraintTop_toTopOf="@id/order_fragment_estimate_tvNumOfCar" />
+
+                <Button
+                    android:id="@+id/order_fragment_estimate_btnPlus"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/view_border"
+                    app:layout_constraintBottom_toBottomOf="@id/order_fragment_estimate_tvNumOfCar"
+                    app:layout_constraintRight_toRightOf="@id/order_fragment_estimate_inputText_pay"
+                    app:layout_constraintTop_toTopOf="@id/order_fragment_estimate_tvNumOfCar" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:elevation="2dp"
+                    android:src="@drawable/ic_plus"
+                    app:layout_constraintBottom_toBottomOf="@id/order_fragment_estimate_btnPlus"
+                    app:layout_constraintLeft_toLeftOf="@id/order_fragment_estimate_btnPlus"
+                    app:layout_constraintRight_toRightOf="@id/order_fragment_estimate_btnPlus"
+                    app:layout_constraintTop_toTopOf="@id/order_fragment_estimate_btnPlus" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
         <Button
             android:id="@+id/order_fragment_estimate_btnOrder"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_below="@id/order_fragment_estimate_tvNumOfCar"
-            android:layout_marginTop="69dp"
-            android:background="@color/buttonBackground"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:background="@color/button_background_disable"
             android:text="발주하기"
-            android:textColor="@color/buttonText"
-            android:textSize="18sp" />
-    </RelativeLayout>
-</ScrollView>
+            android:textColor="@color/button_text_disable"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

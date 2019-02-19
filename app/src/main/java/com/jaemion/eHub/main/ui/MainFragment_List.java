@@ -1,13 +1,17 @@
 package com.jaemion.eHub.main.ui;
 
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -15,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.MainFragmentListBinding;
 import com.jaemion.eHub.main.MainActivity;
 import com.jaemion.eHub.orderdetail.OrderDetailActivity;
 
@@ -26,6 +31,8 @@ public class MainFragment_List extends Fragment {
         return new MainFragment_List();
     }
 
+    MainFragmentListBinding binding;
+
     public MainFragment_List() {
         super();
     }
@@ -34,22 +41,22 @@ public class MainFragment_List extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.main_fragment_list, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.main_fragment_list_recyclerView);
+        binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment_list, container, false);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
 
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(layoutManager);
+        binding.mainFragmentListRecyclerView.setHasFixedSize(true);
+        binding.mainFragmentListRecyclerView.setLayoutManager(layoutManager);
 
         MainFragment_List_Adapter adapder = new MainFragment_List_Adapter(getContext());
-        recyclerView.setAdapter(adapder);
+        binding.mainFragmentListRecyclerView.setAdapter(adapder);
         final GestureDetector gd = new GestureDetector(getActivity(), new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onSingleTapUp(MotionEvent e) {
                 return true;
             }
         });
-        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+        binding.mainFragmentListRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
             @Override
             public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
                 View v = rv.findChildViewUnder(e.getX(), e.getY());
@@ -73,7 +80,7 @@ public class MainFragment_List extends Fragment {
 
             }
         });
-        return view;
+        return binding.getRoot();
     }
 
     @Override
@@ -86,7 +93,7 @@ public class MainFragment_List extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((MainActivity)getActivity()).getToolbarTitle().setVisibility(View.VISIBLE);
-        ((MainActivity)getActivity()).getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.appbar_border));
+        ((MainActivity) getActivity()).getToolbarTitle().setVisibility(View.VISIBLE);
+        ((MainActivity) getActivity()).getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.view_appbar_border));
     }
 }

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/signIn_fragment_signIn_imageView"
+            android:layout_width="35dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="@id/signIn_fragment_signIn_inputLayout_id"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="로그인"
+            android:textColor="@android:color/black"
+            android:textSize="19sp"
+            app:layout_constraintLeft_toLeftOf="@id/signIn_fragment_signIn_inputLayout_id"
+            app:layout_constraintTop_toBottomOf="@id/signIn_fragment_signIn_imageView" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signIn_fragment_signIn_inputLayout_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/view_side_margin"
+            android:layout_marginTop="65.7dp"
+            android:layout_marginRight="@dimen/view_side_margin"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signIn_fragment_signIn_imageView">
+
+            <EditText
+                android:id="@+id/signIn_fragment_signIn_etId"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/view_edittext_border"
+                android:hint="아이디"
+                android:inputType="textEmailAddress"
+                android:nextFocusDown="@id/signIn_fragment_signIn_etPw"
+                android:paddingLeft="@dimen/editText_padding"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signIn_fragment_signIn_inputLayout_pw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/view_side_margin"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="@dimen/view_side_margin"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signIn_fragment_signIn_inputLayout_id">
+
+            <EditText
+                android:id="@+id/signIn_fragment_signIn_etPw"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/view_edittext_border"
+                android:hint="비밀번호"
+                android:inputType="textPassword"
+                android:paddingLeft="@dimen/editText_padding"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/signIn_fragment_signIn_btnSign"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/button_background_disable"
+            android:text="로그인"
+            android:textColor="@color/button_text_disable"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <CheckBox
+            android:id="@+id/signIn_fragment_signIn_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="자동로그인"
+            app:layout_constraintLeft_toLeftOf="@id/signIn_fragment_signIn_inputLayout_pw"
+            app:layout_constraintTop_toBottomOf="@id/signIn_fragment_signIn_inputLayout_pw" />
+
+        <TextView
+            android:id="@+id/signIn_fragment_signIn_tvFindPw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="비밀번호 찾기"
+            app:layout_constraintRight_toRightOf="@id/signIn_fragment_signIn_inputLayout_pw"
+            app:layout_constraintTop_toBottomOf="@id/signIn_fragment_signIn_inputLayout_pw" />
+
+        <TextView
+            android:id="@+id/signIn_fragment_signIn_tvSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="처음 사용하시나요?"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signIn_fragment_signIn_inputLayout_pw" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

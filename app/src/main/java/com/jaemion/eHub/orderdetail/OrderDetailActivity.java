@@ -1,45 +1,49 @@
 package com.jaemion.eHub.orderdetail;
 
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.databinding.OrderDetailActivityBinding;
 
 public class OrderDetailActivity extends AppCompatActivity {
-    Toolbar toolbar;
-    RecyclerView recyclerView;
-    TextView tvStatus, tvMessage;
+
+    OrderDetailActivityBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.order_detail_activity);
-        toolbar = findViewById(R.id.order_detail_toolbar);
-        setSupportActionBar(toolbar);
+        binding = DataBindingUtil.setContentView(this, R.layout.order_detail_activity);
+        setSupportActionBar(binding.orderDetailToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_black);
-        recyclerView = findViewById(R.id.order_detail_recyclerView);
-        tvStatus = findViewById(R.id.order_detail_tvStatus);
-        tvMessage = findViewById(R.id.order_detail_tvMessage);
+        /*tvType = findViewById(R.id.order_detail_tvType);
+        tvDuration = findViewById(R.id.order_detail_tvDuration);
+        tvTitle = findViewById(R.id.order_detail_tvTitle);
+        tvNum = findViewById(R.id.order_detail_tvNum);
+        tvPay = findViewById(R.id.order_detail_tvPay);*/
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(layoutManager);
+        binding.orderDetailRecyclerView.setHasFixedSize(true);
+        binding.orderDetailRecyclerView.setLayoutManager(layoutManager);
         OrderDetailAdapter adapter = new OrderDetailAdapter(getApplicationContext());
-        recyclerView.setAdapter(adapter);
+        binding.orderDetailRecyclerView.setAdapter(adapter);
         if (adapter.getItemCount() != 0) {
-            tvStatus.setVisibility(View.GONE);
-            tvMessage.setVisibility(View.GONE);
-        }else{
-            recyclerView.setVisibility(View.GONE);
+            binding.orderDetailTvMessage.setVisibility(View.GONE);
+        } else {
+            binding.orderDetailRecyclerView.setVisibility(View.GONE);
         }
     }
 

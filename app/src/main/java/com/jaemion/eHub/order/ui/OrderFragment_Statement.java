@@ -1,21 +1,25 @@
 package com.jaemion.eHub.order.ui;
 
 import android.app.Activity;
-import android.arch.lifecycle.ViewModelProviders;
+
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.jaemion.eHub.R;
-import com.jaemion.eHub.main.ui.MainFragment_Main;
+import com.jaemion.eHub.databinding.OrderFragmentStatementBinding;
 import com.jaemion.eHub.order.OrderActivity;
 
 public class OrderFragment_Statement extends Fragment implements View.OnClickListener {
@@ -25,45 +29,43 @@ public class OrderFragment_Statement extends Fragment implements View.OnClickLis
         return new OrderFragment_Statement();
     }
 
-    Button btnList, btnHome, btnOrder;
+    OrderFragmentStatementBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.order_fragment_statement, container, false);
-        btnHome = view.findViewById(R.id.order_fragment_statement_btnHome);
-        btnList = view.findViewById(R.id.order_fragment_statement_btnList);
-        btnOrder = view.findViewById(R.id.order_fragment_statement_btnOrder);
-        btnHome.setOnClickListener(this);
-        btnList.setOnClickListener(this);
-        btnOrder.setOnClickListener(this);
-        ((OrderActivity)getActivity()).getToolbarTitle().setText("발주결과");
-        return view;
+        binding = DataBindingUtil.inflate(inflater, R.layout.order_fragment_statement, container, false);
+
+        binding.orderFragmentStatementBtnHome.setOnClickListener(this);
+        binding.orderFragmentStatementBtnList.setOnClickListener(this);
+        binding.orderFragmentStatementBtnOrder.setOnClickListener(this);
+        ((OrderActivity) getActivity()).setToolbar("발주 결과");
+        return binding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(OrderViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(OrderViewModel.class);
         // TODO: Use the ViewModel
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.order_fragment_statement_btnOrder:
+                break;
+
             case R.id.order_fragment_statement_btnHome:
                 getActivity().finish();
                 break;
 
             case R.id.order_fragment_statement_btnList:
                 Intent resultIntent = new Intent();
-                resultIntent.putExtra("destination","List");
-                getActivity().setResult(Activity.RESULT_OK,resultIntent);
+                resultIntent.putExtra("destination", "List");
+                getActivity().setResult(Activity.RESULT_OK, resultIntent);
                 getActivity().finish();
-                break;
-
-            case R.id.order_fragment_statement_btnOrder:
                 break;
         }
     }
