@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import com.jaemion.eHub.R;
 import com.jaemion.eHub.databinding.UserInfoFragmentModifyEmployeeBinding;
 import com.jaemion.eHub.databinding.UserInfoFragmentModifyEmployerBinding;
+import com.jaemion.eHub.userinfo.UserInfoActivity;
 
 public class UserInfoFragment_Modify extends Fragment {
 
@@ -35,21 +36,37 @@ public class UserInfoFragment_Modify extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         if (true) {
-            employeeBinding = DataBindingUtil.inflate(inflater, R.layout.user_info_fragment_main_employee, container, false);
+            employeeBinding = DataBindingUtil.inflate(inflater, R.layout.user_info_fragment_modify_employee, container, false);
             return employeeBinding.getRoot();
         } else {
-            employerBinding = DataBindingUtil.inflate(inflater, R.layout.user_info_fragment_main_employer, container, false);
+            employerBinding = DataBindingUtil.inflate(inflater, R.layout.user_info_fragment_modify_employer, container, false);
             return employerBinding.getRoot();
         }
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        ((UserInfoActivity) getActivity()).setItemVisible(false);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        ((UserInfoActivity) getActivity()).setItemVisible(true);
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(UserInfoFragmentViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(UserInfoFragmentViewModel.class);
+
+        if (true) {
+            employeeBinding.setViewModel(mViewModel);
+        }
 
     }
+
 
 }

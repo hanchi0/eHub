@@ -18,6 +18,7 @@ import com.jaemion.eHub.R;
 import com.jaemion.eHub.databinding.UserInfoFragmentMainEmployeeBinding;
 import com.jaemion.eHub.databinding.UserInfoFragmentMainEmployerBinding;
 import com.jaemion.eHub.secession.SecessionActivity;
+import com.jaemion.eHub.userinfo.UserInfoActivity;
 
 
 public class UserInfoFragment_Main extends Fragment implements View.OnClickListener {
@@ -33,7 +34,6 @@ public class UserInfoFragment_Main extends Fragment implements View.OnClickListe
 
     @Nullable
     @Override
-
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         if (true) {
@@ -50,8 +50,10 @@ public class UserInfoFragment_Main extends Fragment implements View.OnClickListe
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(UserInfoFragmentViewModel.class);
+        mViewModel = ViewModelProviders.of(getActivity()).get(UserInfoFragmentViewModel.class);
         // TODO: Use the ViewModel
+        if(true)
+            employeeBinding.setViewModel(mViewModel);
     }
 
     @Override
