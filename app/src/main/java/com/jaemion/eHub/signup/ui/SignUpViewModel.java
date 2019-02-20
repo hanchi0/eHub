@@ -12,22 +12,16 @@ import retrofit2.Response;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.media.Image;
-import android.nfc.cardemulation.CardEmulation;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.jaemion.eHub.R;
-import com.jaemion.eHub.datamanager.UserDataManager;
 import com.jaemion.eHub.network.NetworkInterface;
-import com.jaemion.eHub.network.model.UserData;
-import com.jaemion.eHub.signup.SignUpActivity;
+import com.jaemion.eHub.network.model.UserDataModel;
 
 public class SignUpViewModel extends ViewModel {
     // TODO: Implement the ViewModel
-    private MutableLiveData<UserData> userData;
+    private MutableLiveData<UserDataModel> userData;
 
     String stId, stPw, stPwCheck, stPhone, stBnum, stNick, stCarType, stRadius, stLocation, pwPattern, pwPattern2;
     int userType;
@@ -62,16 +56,16 @@ public class SignUpViewModel extends ViewModel {
             case R.id.signUp_fragment_default_btnNext:
                 isEnable.set(false);
                 //mViewModel.createUser(getContext();
-                Call<UserData> call = NetworkInterface.retrofit.create(NetworkInterface.class).createUser(stId, stPw, userType);
-                call.enqueue(new Callback<UserData>() {
+                Call<UserDataModel> call = NetworkInterface.retrofit.create(NetworkInterface.class).createUser(stId, stPw, userType);
+                call.enqueue(new Callback<UserDataModel>() {
                     @Override
-                    public void onResponse(Call<UserData> call, Response<UserData> response) {
+                    public void onResponse(Call<UserDataModel> call, Response<UserDataModel> response) {
                         if (response.isSuccessful())
                             userData.setValue(response.body());
                     }
 
                     @Override
-                    public void onFailure(Call<UserData> call, Throwable t) {
+                    public void onFailure(Call<UserDataModel> call, Throwable t) {
                         checkButtonAble();
                     }
                 });
@@ -101,7 +95,7 @@ public class SignUpViewModel extends ViewModel {
             isMatched = false;
         checkButtonAble();
     }
-    
+
     void checkButtonAble() {
         if (!stId.isEmpty() && !stPw.isEmpty() && !stPwCheck.isEmpty() && isMatched) {
             isEnable.set(true);

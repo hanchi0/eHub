@@ -2,7 +2,7 @@ package com.jaemion.eHub.network.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class UserData {
+public class UserDataModel {
     @SerializedName("id")
     String user_id;
     @SerializedName("pw")

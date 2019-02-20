@@ -85,7 +85,7 @@
             android:layout_height="60dp"
             android:background="@{viewModel.isEnable.get() ? @color/button_background_enable : @color/button_background_disable}"
             android:enabled="@{viewModel.isEnable.get()}"
-            android:onClick="@{viewModel::onClick"
+            android:onClick="@{viewModel::onClick}"
             android:text="다음"
             android:textColor="@{viewModel.isEnable.get() ? @color/button_text_enable : @color/button_text_disable}"
             android:textSize="18sp"

@@ -66,12 +66,7 @@ public class MainFragment_Main extends Fragment implements ViewPager.OnPageChang
             public boolean onSingleTapUp(MotionEvent e) {
                 Intent intent = null;
                 //서버에서 유저 정보 받아서 수,발주 다르게
-                /*if(UserDataManager.getInstance().getUserData().getUser().getUserType() == 0)
-                    intent = new Intent(getActivity(), OrderActivity.class);
-                else if(UserDataManager.getInstance().getUserData().getUser().getUserType() == 1)
-                    intent = new Intent(getActivity(), ApplicationActivity.class);
-                else
-                    return;*/
+
                 intent = new Intent(getActivity(), OrderActivity.class);
 
                 switch (pager.getCurrentItem()) {

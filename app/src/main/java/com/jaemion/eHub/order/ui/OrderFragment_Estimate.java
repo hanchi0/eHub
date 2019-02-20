@@ -2,6 +2,7 @@ package com.jaemion.eHub.order.ui;
 
 import android.app.DatePickerDialog;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Context;
@@ -55,7 +56,7 @@ public class OrderFragment_Estimate extends Fragment implements View.OnClickList
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.order_fragment_estimate, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.order_fragment_estimate, container, false);
 
         binding.orderFragmentEstimateIvCalendar.setOnClickListener(this);
         binding.orderFragmentEstimateIvInfo1.setOnClickListener(this);
@@ -115,7 +116,7 @@ public class OrderFragment_Estimate extends Fragment implements View.OnClickList
 
             }
         });
-        return view;
+        return binding.getRoot();
     }
 
     @Override

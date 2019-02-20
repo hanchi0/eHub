@@ -9,30 +9,18 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputLayout;
 import com.jaemion.eHub.R;
+import com.jaemion.eHub.database.Database;
+import com.jaemion.eHub.database.user.User;
 import com.jaemion.eHub.databinding.SignUpFragmentDefaultBinding;
-import com.jaemion.eHub.datamanager.UserDataManager;
-import com.jaemion.eHub.network.NetworkInterface;
-import com.jaemion.eHub.network.model.UserData;
+import com.jaemion.eHub.network.model.UserDataModel;
 import com.jaemion.eHub.signup.SignUpActivity;
 
 public class SignUpFragment_default extends Fragment {
@@ -49,7 +37,6 @@ public class SignUpFragment_default extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.sign_up_fragment_default, container, false);
-
 
 
         binding.signUpFragmentDefaultInputLayoutId.setCounterEnabled(true);
